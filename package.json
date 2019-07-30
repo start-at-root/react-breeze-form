@@ -6,11 +6,12 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p ./tsconfig.json --sourcemap",
-    "test": "NODE_ENV=test jest --config=jest.config.js  --coverage --forceExit --detectOpenHandles",
-    "test:update": "npm test -- --updateSnapshot --coverage",
-    "lint": "eslint ./src --ext .jsx,.ts --ignore-pattern *.test.ts",
+    "commit": "git-cz",
     "format": "prettier --write \"**/*.+(ts|tsx|md|yml|json)\"",
-    "semantic-release": "semantic-release"
+    "lint": "eslint ./src --ext .jsx,.ts --ignore-pattern *.test.ts",
+    "semantic-release": "semantic-release",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "test": "NODE_ENV=test jest --config=jest.config.js  --coverage --forceExit --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -60,6 +61,8 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "all-contributors-cli": "^6.8.1",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.1",
@@ -91,5 +94,8 @@
       "@semantic-release/git",
       "@semantic-release/npm"
     ]
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
