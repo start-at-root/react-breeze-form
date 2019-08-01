@@ -3,7 +3,11 @@ import { terser } from 'rollup-plugin-terser';
 
 export default {
   input: 'src/index.ts',
-  plugins: [typescript(), terser()],
+  plugins: [
+    typescript(),
+    buble({ transforms: { asyncAwait: false }, objectAssign: 'Object.assign' }),
+    terser(),
+  ],
   external: ['react', 'react-dom'],
   output: [
     {
