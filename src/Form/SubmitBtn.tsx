@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Button, Col, Row } from 'reactstrap';
+import {useTranslation} from 'react-i18next';
+import {Button, Col, Row} from 'reactstrap';
 
-import { FormConfig } from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/Forms';
 
 // import './SubmitBtn.scss';
 
@@ -13,9 +13,9 @@ interface Props {
 /** Submit button */
 export default (props: Props) => {
   const {
-    elementConfig: { className, col, placeholder },
+    elementConfig: {className, col, placeholder},
   } = props;
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <Row className="justify-content-center">

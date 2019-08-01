@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { FormProps } from 'react-hook-form/dist/types';
-import { useTranslation } from 'react-i18next';
-import { Input, Label } from 'reactstrap';
+import {FormProps} from 'react-hook-form/dist/types';
+import {useTranslation} from 'react-i18next';
+import {Input, Label} from 'reactstrap';
 
-import { FormConfig } from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/Forms';
 
 // import './Toggle.scss';
 
@@ -35,7 +35,7 @@ export default (props: Props) => {
     register,
     watch,
   } = props;
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const isToggled = watch(name);
 
   return (

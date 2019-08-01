@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import useForm from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { Col, Form, Row } from 'reactstrap';
+import {useTranslation} from 'react-i18next';
+import {Col, Form, Row} from 'reactstrap';
 
-import { FormConfig } from './interfaces/Forms';
+import {FormConfig} from './interfaces/Forms';
 import fetch from './utils/fetch';
 import InputForm from './Form/Input';
 import SelectForm from './Form/SingleSelect';
@@ -19,24 +19,24 @@ interface Props {
 }
 
 /** Form generator */
-export default ({ csrfUrl, defaultValues, form }: Props) => {
+export default ({csrfUrl, defaultValues, form}: Props) => {
   const {
-    formState: { touched },
+    formState: {touched},
     getValues,
     register,
     setValue,
     triggerValidation,
     watch,
-  } = useForm({ defaultValues });
+  } = useForm({defaultValues});
 
   const [csrf, setCsrf] = useState();
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
   const values = getValues();
 
   useEffect(() => {
     const setCsrfToken = async () => {
-      const { token } = await fetch(csrfUrl);
+      const {token} = await fetch(csrfUrl);
 
       if (token && token.csrf) {
         setCsrf(token.csrf);
@@ -45,7 +45,7 @@ export default ({ csrfUrl, defaultValues, form }: Props) => {
 
     try {
       setCsrfToken();
-    } catch (e) { }
+    } catch (e) {}
   }, [csrfUrl]);
 
   const elementProps = {
@@ -93,7 +93,7 @@ export default ({ csrfUrl, defaultValues, form }: Props) => {
    * @param elementConfig Form configuration object to render form element.
    */
   const renderElement = (elementConfig: FormConfig) => {
-    const { name, type, inputs } = elementConfig;
+    const {name, type, inputs} = elementConfig;
 
     if (
       !mapper.hasOwnProperty(type) ||

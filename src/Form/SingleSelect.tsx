@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { FormProps } from 'react-hook-form/dist/types';
-import { useTranslation } from 'react-i18next';
+import React, {useEffect, useState} from 'react';
+import {FormProps} from 'react-hook-form/dist/types';
+import {useTranslation} from 'react-i18next';
 import Select from 'react-select';
-import { FormGroup, Label } from 'reactstrap';
+import {FormGroup, Label} from 'reactstrap';
 
-import { FormConfig } from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/Forms';
 
 // import '../Form.scss';
 // import './SingleSelect.scss';
@@ -29,14 +29,14 @@ interface Props {
 /** Render a generic single select input */
 export default (props: Props) => {
   const {
-    elementConfig: { className, isMulti, name, options, placeholder, required },
+    elementConfig: {className, isMulti, name, options, placeholder, required},
     register,
     touched,
     setValue,
   } = props;
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
-  const [values, setReactSelectValue] = useState({ selectedOption: [] } as any);
+  const [values, setReactSelectValue] = useState({selectedOption: []} as any);
 
   /**
    * Handle select change.
@@ -44,7 +44,7 @@ export default (props: Props) => {
    */
   const handleChange = (selectedOption: SelectSelectionInterface[]): void => {
     setValue(name, selectedOption);
-    setReactSelectValue({ selectedOption: [selectedOption] });
+    setReactSelectValue({selectedOption: [selectedOption]});
   };
 
   /**
@@ -68,7 +68,7 @@ export default (props: Props) => {
    * React's use effect.
    */
   useEffect(() => {
-    register({ name, required });
+    register({name, required});
   }, [name, register, required]);
 
   return (

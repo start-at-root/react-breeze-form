@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormProps } from 'react-hook-form/dist/types';
-import { useTranslation } from 'react-i18next';
+import {FormProps} from 'react-hook-form/dist/types';
+import {useTranslation} from 'react-i18next';
 import {
   FormGroup,
   Input,
@@ -10,7 +10,7 @@ import {
   Label,
 } from 'reactstrap';
 
-import { FormConfig } from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/Forms';
 
 // import '../Form.scss';
 // import './Input.scss';
@@ -25,8 +25,8 @@ interface Props {
 
 /** Input field */
 export default (props: Props) => {
-  const { elementConfig, register, triggerValidation, touched, values } = props;
-  const { t } = useTranslation();
+  const {elementConfig, register, triggerValidation, touched, values} = props;
+  const {t} = useTranslation();
 
   const {
     addon,
@@ -65,14 +65,14 @@ export default (props: Props) => {
           })}
           placeholder={t(placeholder)}
           className={`${className || ''}`}
-          onBlur={() => triggerValidation([{ name }])}
+          onBlur={() => triggerValidation([{name}])}
         />
         <Label
           for={name}
           sm={6}
           className={`f-label-index ${
             addon && addon.type === 'prepend' ? 'f-m-40' : ''
-            }`}
+          }`}
           visible={`${!!values[name]}`}
           touched={`${(touched as string[]).includes(name)}`}>
           <span>{t(placeholder)}</span>

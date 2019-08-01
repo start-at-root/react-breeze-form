@@ -23,7 +23,7 @@ export default {
       ],
     }),
     buble({ transforms: { asyncAwait: false }, objectAssign: 'Object.assign' }),
-    commonjs() // the ".ts" extension is required
+    commonjs()
   ],
   external: [
     'react-dom',
@@ -35,11 +35,11 @@ export default {
   ],
   output: [
     {
-      file: 'dist/index.js',
+      file: 'dist/index.jsx',
       format: 'cjs',
     },
     {
-      file: 'dist/index.es.js',
+      file: 'dist/index.es.jsx',
       format: 'es',
     },
   ],
