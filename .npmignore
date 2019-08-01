@@ -26,3 +26,11 @@ tsconfig.jest.json
 /examples
 .eslintrc.js
 CODE_OF_CONDUCT.md
+.vscode
+.travis.yml
+.all-contributorsrc
+.prettierignore
+.prettierrc
+.stylelintrc
+tests/
+jest.setup.ts

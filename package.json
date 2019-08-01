@@ -2,20 +2,22 @@
   "name": "react-breeze-form",
   "version": "0.0.0-development",
   "description": "Quickly render bootstrap styled react hook forms using a schema file.",
-  "main": "dist/index.js",
+  "main": "dist/index.jsx",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build:min": "rollup -c rollup.min.config.js",
-    "build:ts": "tsc -p ./tsconfig.json --sourcemap",
+    "build:tsc": "tsc -p ./tsconfig.json --sourcemap",
     "build:watch": "rollup -c -w",
     "build": "rollup -c",
     "bundlesize": "npm run build:min && bundlesize",
-    "clean": "rimraf dist/*",
     "commit": "git-cz",
     "format": "prettier --write \"**/*.+(ts|tsx|md|yml|json)\"",
     "lint": "eslint ./src --ext .jsx,.ts --ignore-pattern *.test.ts",
     "postrelease": "npm publish && git push --follow-tags",
-    "prepublish": "npm format && npm lint && npm test && npm run clean && npm build",
+    "prepublish": "npm run format && npm run lint && npm test && npm run build",
     "semantic-release": "semantic-release",
     "test:update": "npm test -- --updateSnapshot --coverage",
     "test": "NODE_ENV=test jest --config=jest.config.js  --coverage --forceExit --detectOpenHandles"
@@ -41,8 +43,12 @@
   },
   "homepage": "https://github.com/jlison/react-breeze-form#readme",
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": ">=16.8.0",
+    "react-hook-form": "=>3.18.14",
+    "react-i18next": "=>10.2.0",
+    "react-select": ">=2.4.1",
+    "react": ">=16.8.0",
+    "reactstrap": ">=7.1.0"
   },
   "husky": {
     "hooks": {
@@ -65,9 +71,20 @@
     "@testing-library/react": "^8.0.7",
     "@types/jest": "^24.0.16",
     "@types/react": "^16.8.23",
+    "@types/react-i18next": "^8.1.0",
+    "@types/react-select": "^3.0.0",
+    "@types/reactstrap": "^8.0.1",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "all-contributors-cli": "^6.8.1",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "bundlesize": "^0.18.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
@@ -81,8 +98,18 @@
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-hook-form": "^3.21.3",
+    "react-i18next": "^10.11.4",
+    "react-select": "^3.0.4",
+    "reactstrap": "^8.0.1",
     "rimraf": "^2.6.3",
     "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript2": "^0.22.1",
     "semantic-release": "^15.13.18",
@@ -109,5 +136,6 @@
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"
-  }
+  },
+  "dependencies": {}
 }

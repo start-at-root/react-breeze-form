@@ -1,0 +1,85 @@
+@import '~compass-mixins/lib/compass';
+@import '../../../styles/custom_colors';
+@import '../../../styles/flat_ui_colors';
+
+.switch {
+  display: inline-block;
+  height: 34px;
+  margin: 0 20px;
+  position: relative;
+  width: 60px;
+
+  input {
+    height: 0;
+    opacity: 0;
+    width: 0;
+  }
+}
+
+.slider {
+  @include transition(delay, 0.4s);
+
+  background-color: $bootstrap-gray-bg;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &::before {
+    @include transition(delay, 0.4s);
+
+    background-color: $white;
+    bottom: 4px;
+    content: '';
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
+  }
+}
+
+input {
+  &:checked + .slider {
+    @include background-image(linear-gradient(to right, $purple, $bluegreen));
+  }
+
+  &:focus + .slider {
+    box-shadow: 0 0 1px $flat-belize-hole;
+  }
+
+  &:checked + .slider::before {
+    @include transform(translateX(26px));
+  }
+}
+
+/* Rounded sliders */
+.slider.round {
+  @include border-radius(34px);
+
+  &::before {
+    @include border-radius(50%);
+  }
+}
+
+.slider-label.off {
+  color: $black;
+  position: absolute;
+  right: 7px;
+  top: 6px;
+}
+
+.slider-label.on {
+  color: $white;
+  left: 7px;
+  position: absolute;
+  top: 6px;
+}
+
+.toggle-placeholder {
+  display: inline-block;
+  margin: -20px 0 0;
+  vertical-align: middle;
+}
