@@ -5,10 +5,10 @@ import {Col, Form, Row} from 'reactstrap';
 
 import {FormConfig} from './interfaces/Forms';
 import fetch from './utils/fetch';
-import InputForm from './Form/Input';
-import SelectForm from './Form/SingleSelect';
-import SubmitBtn from './Form/SubmitBtn';
-import ToggleForm from './Form/Toggle';
+import InputForm from './components/Input';
+import SelectForm from './components/SingleSelect';
+import SubmitBtn from './components/SubmitBtn';
+import ToggleForm from './components/Toggle';
 
 interface Props {
   form: FormConfig[];
@@ -34,6 +34,9 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
 
   const values = getValues();
 
+  /**
+   * Get csrf protection token, if required.
+   */
   useEffect(() => {
     const setCsrfToken = async () => {
       const {token} = await fetch(csrfUrl);
@@ -43,9 +46,11 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
       }
     };
 
-    try {
-      setCsrfToken();
-    } catch (e) {}
+    if (csrfUrl) {
+      try {
+        setCsrfToken();
+      } catch (e) {}
+    }
   }, [csrfUrl]);
 
   const elementProps = {
@@ -118,7 +123,7 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
 
     if (inputs) {
       nodes.push(
-        <Row key={`r-${name}-${type}`}>
+        <Row key={`br-${name}-${type}`}>
           {inputs.map((input, i) => {
             if (
               !mapper.hasOwnProperty(input.type) ||
@@ -129,7 +134,7 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
 
             return (
               <Col
-                key={`c-${name}-${input.type}-${i}`}
+                key={`bc-${name}-${input.type}-${i}`}
                 md={input.col || 12 / inputs.length}>
                 {(mapper as any)[input.type](input)}
               </Col>
@@ -139,7 +144,7 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
       );
     } else {
       nodes.push(
-        <Row key={`r-${name}-${type}`}>
+        <Row key={`br-${name}-${type}`}>
           <Col md={12}>{(mapper as any)[type](elementConfig)}</Col>
         </Row>,
       );
@@ -152,6 +157,10 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
     );
   };
 
+  /**
+   * On submit form action.
+   * @param data Form data.
+   */
   const onSubmit = (data: any) => {
     data.csrf = csrf;
     console.log(data);

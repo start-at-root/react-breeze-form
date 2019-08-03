@@ -18,7 +18,7 @@ export interface FormConfig {
   translation?: string;
   addon?: {
     type: 'prepend' | 'append';
-    icon?: string;
+    icon?: React.ReactNode;
     text?: string;
   };
   maxLength?: number;

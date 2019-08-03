@@ -12,9 +12,6 @@ import {
 
 import {FormConfig} from '../interfaces/Forms';
 
-// import '../Form.scss';
-// import './Input.scss';
-
 interface Props {
   elementConfig: FormConfig;
   register: FormProps['register'];
@@ -43,13 +40,11 @@ export default (props: Props) => {
   } = elementConfig;
 
   return (
-    <FormGroup className="d-group">
+    <FormGroup className="rbf-group">
       <InputGroup>
         {addon && (
           <InputGroupAddon addonType={addon.type}>
-            <InputGroupText>
-              {addon.icon && <i className={`icon-${addon.icon}`} />}
-            </InputGroupText>
+            <InputGroupText>{addon.icon && <>{addon.icon}</>}</InputGroupText>
           </InputGroupAddon>
         )}
         <Input
@@ -70,8 +65,8 @@ export default (props: Props) => {
         <Label
           for={name}
           sm={6}
-          className={`f-label-index ${
-            addon && addon.type === 'prepend' ? 'f-m-40' : ''
+          className={`rbf-label-index ${
+            addon && addon.type === 'prepend' ? 'rbf-m-40' : ''
           }`}
           visible={`${!!values[name]}`}
           touched={`${(touched as string[]).includes(name)}`}>

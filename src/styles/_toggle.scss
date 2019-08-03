@@ -1,6 +1,6 @@
 @import '~compass-mixins/lib/compass';
-@import '../../../styles/custom_colors';
-@import '../../../styles/flat_ui_colors';
+@import './custom_colors';
+@import './flat_ui_colors';
 
 .switch {
   display: inline-block;
@@ -30,7 +30,7 @@
   &::before {
     @include transition(delay, 0.4s);
 
-    background-color: $white;
+    background-color: $rbf-white;
     bottom: 4px;
     content: '';
     height: 26px;
@@ -43,7 +43,7 @@
 
 input {
   &:checked + .slider {
-    @include background-image(linear-gradient(to right, $purple, $bluegreen));
+    @include background-image(linear-gradient(to right, $rbf-purple, $rbf-bluegreen));
   }
 
   &:focus + .slider {
@@ -65,14 +65,14 @@ input {
 }
 
 .slider-label.off {
-  color: $black;
+  color: $rbf-black;
   position: absolute;
   right: 7px;
   top: 6px;
 }
 
 .slider-label.on {
-  color: $white;
+  color: $rbf-white;
   left: 7px;
   position: absolute;
   top: 6px;

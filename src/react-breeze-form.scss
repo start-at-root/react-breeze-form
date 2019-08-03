@@ -1,0 +1,32 @@
+@import '~compass-mixins/lib/compass';
+@import './styles/custom_colors';
+@import './styles/flat_ui_colors';
+@import './styles/input';
+@import './styles/toggle';
+
+.rbf-group {
+  position: relative;
+
+  label {
+    font-size: 12px;
+    opacity: 0;
+    position: absolute;
+    top: -16px;
+    width: 100%;
+
+    > span {
+      @include border-radius(3px);
+
+      background-color: $rbf-white;
+      padding: 3px 5px;
+    }
+  }
+
+  input:focus ~ label[touched='true'] {
+    opacity: 1;
+  }
+
+  label[visible='true'] {
+    opacity: 1;
+  }
+}

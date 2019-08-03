@@ -6,9 +6,6 @@ import {FormGroup, Label} from 'reactstrap';
 
 import {FormConfig} from '../interfaces/Forms';
 
-// import '../Form.scss';
-// import './SingleSelect.scss';
-
 export interface SelectSelectionInterface {
   value: string;
   label: string;
@@ -72,7 +69,7 @@ export default (props: Props) => {
   }, [name, register, required]);
 
   return (
-    <FormGroup className="d-group">
+    <FormGroup className="rbf-group">
       <Select
         className={className}
         onChange={handleChange}
@@ -84,7 +81,7 @@ export default (props: Props) => {
       <Label
         for={name}
         sm={6}
-        className="f-label-index"
+        className="rbf-label-index"
         visible={`${values.selectedOption.length > 0}`}
         touched={`${(touched as string[]).includes(name)}`}>
         <span>{t(placeholder)}</span>

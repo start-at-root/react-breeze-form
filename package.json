@@ -44,6 +44,7 @@
   },
   "homepage": "https://github.com/jlison/react-breeze-form#readme",
   "peerDependencies": {
+    "compass-mixins": ">=0.12.10",
     "react-dom": ">=16.8.0",
     "react-hook-form": "=>3.18.14",
     "react-i18next": "=>10.2.0",
@@ -80,6 +81,7 @@
     "all-contributors-cli": "^6.8.1",
     "bundlesize": "^0.18.0",
     "commitizen": "^4.0.3",
+    "compass-mixins": "^0.12.10",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.1.0",
     "eslint-plugin-react": "^7.14.3",
