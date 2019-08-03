@@ -10,7 +10,7 @@ import {
   Label,
 } from 'reactstrap';
 
-import {FormConfig} from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/FormConfig';
 
 interface Props {
   elementConfig: FormConfig;

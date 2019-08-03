@@ -8,6 +8,7 @@
     "dist"
   ],
   "scripts": {
+    "build:css": "node-sass --include-path scss src/main.scss dist/react-breeze-form.css",
     "build:min": "rollup -c rollup.min.config.js",
     "build:tsc": "tsc -p ./tsconfig.json --sourcemap",
     "build:watch": "rollup -c -w",
@@ -18,7 +19,7 @@
     "format": "prettier --write \"**/*.+(ts|tsx|md|yml|json)\"",
     "lint": "eslint ./src --ext .jsx,.ts --ignore-pattern *.test.ts",
     "postrelease": "npm publish && git push --follow-tags",
-    "prepublish": "npm run format && npm run lint && npm test && npm run clean && npm run build",
+    "prepublishOnly": "npm run format && npm run lint && npm test && npm run clean npm run build:css && npm run build",
     "semantic-release": "semantic-release",
     "test:update": "npm test -- --updateSnapshot --coverage",
     "test": "NODE_ENV=test jest --config=jest.config.js  --coverage --forceExit --detectOpenHandles"
@@ -89,6 +90,7 @@
     "husky": "^3.0.2",
     "jest": "^24.8.0",
     "lint-staged": "^9.2.1",
+    "node-sass": "^4.12.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
@@ -99,13 +101,8 @@
     "reactstrap": "^8.0.1",
     "rimraf": "^2.6.3",
     "rollup": "^1.17.0",
-    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-copy-glob": "^0.3.1",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript2": "^0.22.1",
     "semantic-release": "^15.13.18",

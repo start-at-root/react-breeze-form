@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import Select from 'react-select';
 import {FormGroup, Label} from 'reactstrap';
 
-import {FormConfig} from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/FormConfig';
 
 export interface SelectSelectionInterface {
   value: string;

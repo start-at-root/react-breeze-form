@@ -1,8 +1,8 @@
-@import '~compass-mixins/lib/compass';
+@import '../../node_modules/compass-mixins/lib/compass';
 @import './custom_colors';
 @import './flat_ui_colors';
 
-.switch {
+.rbf-switch {
   display: inline-block;
   height: 34px;
   margin: 0 20px;
@@ -16,7 +16,7 @@
   }
 }
 
-.slider {
+.rbf-slider {
   @include transition(delay, 0.4s);
 
   background-color: $bootstrap-gray-bg;
@@ -42,21 +42,21 @@
 }
 
 input {
-  &:checked + .slider {
+  &:checked + .rbf-slider {
     @include background-image(linear-gradient(to right, $rbf-purple, $rbf-bluegreen));
   }
 
-  &:focus + .slider {
+  &:focus + .rbf-slider {
     box-shadow: 0 0 1px $flat-belize-hole;
   }
 
-  &:checked + .slider::before {
+  &:checked + .rbf-slider::before {
     @include transform(translateX(26px));
   }
 }
 
-/* Rounded sliders */
-.slider.round {
+/* Rounded rbf-sliders */
+.rbf-slider.round {
   @include border-radius(34px);
 
   &::before {
@@ -64,21 +64,21 @@ input {
   }
 }
 
-.slider-label.off {
+.rbf-slider-label.off {
   color: $rbf-black;
   position: absolute;
   right: 7px;
   top: 6px;
 }
 
-.slider-label.on {
+.rbf-slider-label.on {
   color: $rbf-white;
   left: 7px;
   position: absolute;
   top: 6px;
 }
 
-.toggle-placeholder {
+.rbf-toggle-placeholder {
   display: inline-block;
   margin: -20px 0 0;
   vertical-align: middle;

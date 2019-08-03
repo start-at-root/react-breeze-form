@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Button, Col, Row} from 'reactstrap';
 
-import {FormConfig} from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/FormConfig';
 
 // import './SubmitBtn.scss';
 

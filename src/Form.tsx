@@ -3,7 +3,7 @@ import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
 
-import {FormConfig} from './interfaces/Forms';
+import {FormConfig} from './interfaces/FormConfig';
 import fetch from './utils/fetch';
 import InputForm from './components/Input';
 import SelectForm from './components/SingleSelect';

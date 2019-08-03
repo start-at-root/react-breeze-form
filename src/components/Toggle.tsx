@@ -3,7 +3,7 @@ import {FormProps} from 'react-hook-form/dist/types';
 import {useTranslation} from 'react-i18next';
 import {Input, Label} from 'reactstrap';
 
-import {FormConfig} from '../interfaces/Forms';
+import {FormConfig} from '../interfaces/FormConfig';
 
 // import './Toggle.scss';
 
@@ -40,8 +40,8 @@ export default (props: Props) => {
 
   return (
     <>
-      <div className="toggle-placeholder">{t(placeholder)}</div>
-      <Label className={`switch ${className ? className : ''}`}>
+      <div className="rbf-toggle-placeholder">{t(placeholder)}</div>
+      <Label className={`rbf-switch ${className ? className : ''}`}>
         <Input
           type="checkbox"
           name={name}
@@ -56,9 +56,11 @@ export default (props: Props) => {
           })}
           placeholder={t(placeholder)}
         />
-        <span className={`slider ${shape ? shape : 'round'}`}>
+        <span className={`rbf-slider ${shape ? shape : 'round'}`}>
           <span
-            className={['slider-label', isToggled ? 'on' : 'off'].join(' ')}>
+            className={['rbf-slider-label', isToggled ? 'on' : 'off'].join(
+              ' ',
+            )}>
             {isToggled ? t('common:yes') : t('common:no')}
           </span>
         </span>

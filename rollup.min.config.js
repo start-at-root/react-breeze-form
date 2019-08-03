@@ -1,11 +1,12 @@
+import buble from 'rollup-plugin-buble';
+import {terser} from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
-import { terser } from 'rollup-plugin-terser';
 
 export default {
-  input: 'src/index.ts',
+  input: 'src/index.tsx',
   plugins: [
     typescript(),
-    buble({ transforms: { asyncAwait: false }, objectAssign: 'Object.assign' }),
+    buble({ transforms: {asyncAwait: false}, objectAssign: 'Object.assign' }),
     terser(),
   ],
   external: ['react', 'react-dom'],
