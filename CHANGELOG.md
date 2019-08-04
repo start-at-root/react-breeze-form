@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/jlison/react-breeze-form/compare/v1.0.0...v1.0.1) (2019-08-04)
+
+
+### Bug Fixes
+
+* fix scss node_modules import resolution ([#2](https://github.com/jlison/react-breeze-form/issues/2)) ([d644c74](https://github.com/jlison/react-breeze-form/commit/d644c74))
+
 # 1.0.0 (2019-08-03)
 
 
