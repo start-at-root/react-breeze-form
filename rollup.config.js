@@ -5,11 +5,9 @@ import typescript from 'rollup-plugin-typescript2';
 export default {
   input: 'src/index.tsx',
   plugins: [
-    copy([
-      { files: 'src/**/*.{sass,scss}', dest: 'dist' },
-    ], { verbose: true }),
+    copy([{files: 'src/**/*.{sass,scss}', dest: 'dist'}], {verbose: true}),
     typescript(),
-    buble({ transforms: { asyncAwait: false }, objectAssign: 'Object.assign' }),
+    buble({transforms: {asyncAwait: false}, objectAssign: 'Object.assign'}),
   ],
   external: [
     'react-dom',
