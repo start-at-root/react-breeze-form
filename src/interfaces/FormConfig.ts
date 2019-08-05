@@ -13,11 +13,10 @@ export interface FormHeader {
 export interface FormConfig {
   name: string;
   type: string;
-  col?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '9' | '10' | '11' | '12';
-  inputType?: InputType;
-  translation?: string;
+  col?: number;
+  inputType?: InputType | string;
   addon?: {
-    type: 'prepend' | 'append';
+    type: 'prepend' | 'append' | string;
     icon?: React.ReactNode;
     text?: string;
   };
@@ -27,7 +26,7 @@ export interface FormConfig {
   min?: number;
   required?: boolean;
   className?: string;
-  placeholder: string;
+  placeholder?: string;
   shape?: string;
   options?: SelectSelectionInterface[];
   inputs?: FormConfig[];
