@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/jlison/react-breeze-form/compare/v1.0.1...v1.0.2) (2019-08-05)
+
+
+### Bug Fixes
+
+* input addonType typehint ([#4](https://github.com/jlison/react-breeze-form/issues/4)) ([5e4d03c](https://github.com/jlison/react-breeze-form/commit/5e4d03c))
+* update form config interfaces. Update commitizen config in package.json ([#3](https://github.com/jlison/react-breeze-form/issues/3)) ([a8c1b24](https://github.com/jlison/react-breeze-form/commit/a8c1b24))
+
 ## [1.0.1](https://github.com/jlison/react-breeze-form/compare/v1.0.0...v1.0.1) (2019-08-04)
 
 
