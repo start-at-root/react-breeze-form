@@ -43,7 +43,7 @@ export default (props: Props) => {
     <FormGroup className="rbf-group">
       <InputGroup>
         {addon && (
-          <InputGroupAddon addonType={addon.type}>
+          <InputGroupAddon addonType={addon.type as 'prepend' | 'append'}>
             <InputGroupText>{addon.icon && <>{addon.icon}</>}</InputGroupText>
           </InputGroupAddon>
         )}
