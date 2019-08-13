@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/jlison/react-breeze-form/compare/v1.0.3...v1.0.4) (2019-08-13)
+
+
+### Bug Fixes
+
+* add onSubmit handler prop. ([#6](https://github.com/jlison/react-breeze-form/issues/6)) ([23ec45d](https://github.com/jlison/react-breeze-form/commit/23ec45d))
+
 # 1.0.0 (2019-08-03)
 
 ### Bug Fixes
