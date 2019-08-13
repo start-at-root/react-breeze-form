@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import Select from 'react-select';
 import {FormGroup, Label} from 'reactstrap';
 
-import {FormConfig} from '../interfaces/FormConfig';
+import {DefaultInputProps} from '../interfaces/FormConfig';
 
 export interface SelectSelectionInterface {
   value: string;
@@ -13,10 +13,8 @@ export interface SelectSelectionInterface {
 
 type Options = SelectSelectionInterface[];
 
-interface Props extends Omit<Partial<FormProps>, 'formState'> {
+interface Props extends DefaultInputProps {
   options?: Options;
-  elementConfig: FormConfig;
-  formState: FormProps['formState'] | unknown[] | unknown;
 }
 
 /** Render a generic single select input */

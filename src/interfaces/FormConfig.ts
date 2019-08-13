@@ -1,3 +1,4 @@
+import {FormProps} from 'react-hook-form/dist/types';
 import {InputType} from 'reactstrap/lib/Input';
 
 export interface SelectSelectionInterface {
@@ -6,6 +7,7 @@ export interface SelectSelectionInterface {
 }
 
 export interface FormHeader {
+  id: string;
   text: string;
   className?: string;
 }
@@ -35,4 +37,10 @@ export interface FormConfig {
   pattern?: RegExp;
   validate?: any;
   isMulti?: boolean;
+}
+
+export interface DefaultInputProps
+  extends Omit<Partial<FormProps>, 'formState'> {
+  elementConfig: FormConfig;
+  formState: FormProps['formState'] | unknown[] | unknown;
 }

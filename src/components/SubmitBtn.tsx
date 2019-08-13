@@ -2,14 +2,10 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Button, Col, Row} from 'reactstrap';
 
-import {FormConfig} from '../interfaces/FormConfig';
-
-interface Props {
-  elementConfig: FormConfig;
-}
+import {DefaultInputProps} from '../interfaces/FormConfig';
 
 /** Submit button */
-export default (props: Props) => {
+export default (props: DefaultInputProps) => {
   const {
     elementConfig: {className, col, placeholder},
   } = props;
