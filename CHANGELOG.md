@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/jlison/react-breeze-form/compare/v1.0.2...v1.0.3) (2019-08-13)
+
+
+### Bug Fixes
+
+* apply code climate suggestions to avoid code duplication. Sim… ([#5](https://github.com/jlison/react-breeze-form/issues/5)) ([94368f7](https://github.com/jlison/react-breeze-form/commit/94368f7))
+
 ## [1.0.2](https://github.com/jlison/react-breeze-form/compare/v1.0.1...v1.0.2) (2019-08-05)
 
 
