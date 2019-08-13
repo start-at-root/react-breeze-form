@@ -12,32 +12,26 @@ import {
 
 import {FormConfig} from '../interfaces/FormConfig';
 
-interface Props {
+interface Props extends Omit<Partial<FormProps>, 'formState'> {
   elementConfig: FormConfig;
-  register: FormProps['register'];
-  triggerValidation: FormProps['triggerValidation'];
-  touched: string[] | unknown;
-  values: any;
+  formState: FormProps['formState'] | unknown[] | unknown;
 }
 
 /** Input field */
-export default (props: Props) => {
-  const {elementConfig, register, triggerValidation, touched, values} = props;
+export default ({
+  elementConfig,
+  errors,
+  formState,
+  getValues,
+  register,
+  triggerValidation,
+}: Props) => {
   const {t} = useTranslation();
+  const values = getValues();
 
-  const {
-    addon,
-    className,
-    max,
-    maxLength,
-    min,
-    minLength,
-    name,
-    pattern,
-    placeholder,
-    required,
-    validate,
-  } = elementConfig;
+  const {addon, className, name, placeholder} = elementConfig;
+
+  const {touched} = formState as FormProps['formState'];
 
   return (
     <FormGroup className="rbf-group">
@@ -49,15 +43,8 @@ export default (props: Props) => {
         )}
         <Input
           name={name}
-          innerRef={register({
-            required,
-            maxLength,
-            minLength,
-            max,
-            min,
-            pattern,
-            validate,
-          })}
+          innerRef={register({...elementConfig})}
+          invalid={!!errors[name]}
           placeholder={t(placeholder)}
           className={`${className || ''}`}
           onBlur={() => triggerValidation([{name}])}
@@ -69,7 +56,7 @@ export default (props: Props) => {
             addon && addon.type === 'prepend' ? 'rbf-m-40' : ''
           }`}
           visible={`${!!values[name]}`}
-          touched={`${(touched as string[]).includes(name)}`}>
+          touched={`${(touched as any).includes(name)}`}>
           <span>{t(placeholder)}</span>
         </Label>
       </InputGroup>

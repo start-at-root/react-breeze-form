@@ -13,26 +13,24 @@ export interface SelectSelectionInterface {
 
 type Options = SelectSelectionInterface[];
 
-interface Props {
+interface Props extends Omit<Partial<FormProps>, 'formState'> {
   options?: Options;
   elementConfig: FormConfig;
-  register: FormProps['register'];
-  triggerValidation: FormProps['triggerValidation'];
-  setValue: FormProps['setValue'];
-  touched: string[] | unknown;
-  values: any;
+  formState: FormProps['formState'] | unknown[] | unknown;
 }
 
 /** Render a generic single select input */
-export default (props: Props) => {
+export default ({elementConfig, formState, register, setValue}: Props) => {
   const {
-    elementConfig: {className, isMulti, name, options, placeholder, required},
-    register,
-    touched,
-    setValue,
-  } = props;
+    className,
+    isMulti,
+    name,
+    options,
+    placeholder,
+    required,
+  } = elementConfig;
+  const {touched} = formState as FormProps['formState'];
   const {t} = useTranslation();
-
   const [values, setReactSelectValue] = useState({selectedOption: []} as any);
 
   /**
