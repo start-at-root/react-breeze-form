@@ -5,36 +5,26 @@ import {Input, Label} from 'reactstrap';
 
 import {FormConfig} from '../interfaces/FormConfig';
 
-// import './Toggle.scss';
-
-interface Props {
+interface Props extends Omit<Partial<FormProps>, 'formState'> {
   elementConfig: FormConfig;
-  register: FormProps['register'];
-  triggerValidation: FormProps['triggerValidation'];
-  touched: string[] | unknown;
-  values: any;
-  watch: FormProps['watch'];
+  formState: FormProps['formState'] | unknown[] | unknown;
 }
 
 /** Toggle button */
-export default (props: Props) => {
+export default ({elementConfig, register, watch}: Props) => {
   const {
-    elementConfig: {
-      className,
-      name,
-      shape,
-      required,
-      maxLength,
-      minLength,
-      max,
-      min,
-      pattern,
-      validate,
-      placeholder,
-    },
-    register,
-    watch,
-  } = props;
+    className,
+    name,
+    shape,
+    required,
+    maxLength,
+    minLength,
+    max,
+    min,
+    pattern,
+    validate,
+    placeholder,
+  } = elementConfig;
   const {t} = useTranslation();
   const isToggled = watch(name);
 

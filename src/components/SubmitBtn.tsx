@@ -4,8 +4,6 @@ import {Button, Col, Row} from 'reactstrap';
 
 import {FormConfig} from '../interfaces/FormConfig';
 
-// import './SubmitBtn.scss';
-
 interface Props {
   elementConfig: FormConfig;
 }

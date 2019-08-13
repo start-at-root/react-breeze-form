@@ -18,21 +18,18 @@ interface Props {
   csrfUrl?: string;
 }
 
+const dependencies = [
+  {name: 'input', component: InputForm},
+  {name: 'toggle', component: ToggleForm},
+  {name: 'singleselect', component: SelectForm},
+  {name: 'submitbtn', component: SubmitBtn},
+];
+
 /** Form generator */
 export default ({csrfUrl, defaultValues, form}: Props) => {
-  const {
-    formState: {touched},
-    getValues,
-    register,
-    setValue,
-    triggerValidation,
-    watch,
-  } = useForm({defaultValues});
-
+  const formHooks = useForm({defaultValues});
   const [csrf, setCsrf] = useState();
   const {t} = useTranslation();
-
-  const values = getValues();
 
   /**
    * Get csrf protection token, if required.
@@ -53,45 +50,17 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
     }
   }, [csrfUrl]);
 
-  const elementProps = {
-    register,
-    setValue,
-    touched,
-    triggerValidation,
-    values,
-    watch,
-  };
+  const mapper = {};
 
-  const mapper = {
-    input: (elementConfig: FormConfig) => (
-      <InputForm
-        key={`if-${elementConfig.name}-${elementConfig.type}`}
+  dependencies.forEach((dep) => {
+    mapper[dep.name] = (elementConfig: FormConfig) => (
+      <dep.component
+        key={`${dep.name}-${elementConfig.name}-${elementConfig.type}`}
         elementConfig={elementConfig}
-        {...elementProps}
+        {...formHooks}
       />
-    ),
-    toggle: (elementConfig: FormConfig) => (
-      <ToggleForm
-        key={`tf-${elementConfig.name}-${elementConfig.type}`}
-        elementConfig={elementConfig}
-        {...elementProps}
-      />
-    ),
-    singleselect: (elementConfig: FormConfig) => (
-      <SelectForm
-        key={`ss-${elementConfig.name}-${elementConfig.type}`}
-        elementConfig={elementConfig}
-        {...elementProps}
-      />
-    ),
-    submitbtn: (elementConfig: FormConfig) => (
-      <SubmitBtn
-        key={`sb-${elementConfig.name}-${elementConfig.type}`}
-        elementConfig={elementConfig}
-        {...elementProps}
-      />
-    ),
-  };
+    );
+  });
 
   /**
    * Render form element based on passed form config.
