@@ -3,7 +3,7 @@ import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
 
-import {FormConfig} from './interfaces/FormConfig';
+import {FormConfig, FormHeader} from './interfaces/FormConfig';
 import fetch from './utils/fetch';
 import InputForm from './components/Input';
 import SelectForm from './components/SingleSelect';
@@ -16,6 +16,7 @@ interface Props {
     [key: string]: any;
   };
   csrfUrl?: string;
+  onSubmit: <T>(...args: any) => Promise<T | void> | T | void;
 }
 
 const dependencies = [
@@ -26,7 +27,7 @@ const dependencies = [
 ];
 
 /** Form generator */
-export default ({csrfUrl, defaultValues, form}: Props) => {
+export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
   const formHooks = useForm({defaultValues});
   const [csrf, setCsrf] = useState();
   const {t} = useTranslation();
@@ -63,15 +64,60 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
   });
 
   /**
+   * Render header.
+   * @param header Header configuration object.
+   */
+  const renderHeader = (header: FormHeader): React.ReactNode => (
+    <Row key={`${header.id}`}>
+      <Col md={12}>
+        <h6 className={header.className || ''}>{t(header.text || '')}</h6>
+      </Col>
+    </Row>
+  );
+
+  /**
+   * Render multiple inputs.
+   * @param elementConfig Component/element form configuration object.
+   */
+  const renderMultipleInputs = (elementConfig: FormConfig): React.ReactNode => (
+    <Row key={`br-${elementConfig.name}-${elementConfig.type}`}>
+      {elementConfig.inputs.map((input, i) => {
+        if (
+          !mapper.hasOwnProperty(input.type) ||
+          typeof (mapper as any)[input.type] !== 'function'
+        ) {
+          return null;
+        }
+
+        return (
+          <Col
+            key={`bc-${name}-${input.type}-${i}`}
+            md={input.col || 12 / elementConfig.inputs.length}>
+            {(mapper as any)[input.type](input)}
+          </Col>
+        );
+      })}
+    </Row>
+  );
+
+  /**
+   * Render single input.
+   * @param elementConfig Component/element form configuration object.
+   */
+  const renderInput = (elementConfig: FormConfig): React.ReactNode => (
+    <Row key={`br-${elementConfig.name}-${elementConfig.type}`}>
+      <Col md={12}>{(mapper as any)[elementConfig.type](elementConfig)}</Col>
+    </Row>
+  );
+
+  /**
    * Render form element based on passed form config.
    * @param elementConfig Form configuration object to render form element.
    */
   const renderElement = (elementConfig: FormConfig) => {
-    const {name, type, inputs} = elementConfig;
-
     if (
-      !mapper.hasOwnProperty(type) ||
-      typeof (mapper as any)[type] !== 'function'
+      !mapper.hasOwnProperty(elementConfig.type) ||
+      typeof (mapper as any)[elementConfig.type] !== 'function'
     ) {
       return null;
     }
@@ -79,48 +125,17 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
     const nodes = [];
 
     if (elementConfig.header) {
-      nodes.push(
-        <Row key={`h-${name}-${type}`}>
-          <Col md={12}>
-            <h6 className={elementConfig.header.className || ''}>
-              {t(elementConfig.header.text || '')}
-            </h6>
-          </Col>
-        </Row>,
-      );
+      nodes.push(renderHeader(elementConfig.header));
     }
 
-    if (inputs) {
-      nodes.push(
-        <Row key={`br-${name}-${type}`}>
-          {inputs.map((input, i) => {
-            if (
-              !mapper.hasOwnProperty(input.type) ||
-              typeof (mapper as any)[input.type] !== 'function'
-            ) {
-              return null;
-            }
-
-            return (
-              <Col
-                key={`bc-${name}-${input.type}-${i}`}
-                md={input.col || 12 / inputs.length}>
-                {(mapper as any)[input.type](input)}
-              </Col>
-            );
-          })}
-        </Row>,
-      );
+    if (elementConfig.inputs) {
+      nodes.push(renderMultipleInputs(elementConfig));
     } else {
-      nodes.push(
-        <Row key={`br-${name}-${type}`}>
-          <Col md={12}>{(mapper as any)[type](elementConfig)}</Col>
-        </Row>,
-      );
+      nodes.push(renderInput(elementConfig));
     }
 
     return (
-      <React.Fragment key={`rf-${name}-${type}`}>
+      <React.Fragment key={`rf-${elementConfig.name}-${elementConfig.type}`}>
         {nodes.map((node) => node)}
       </React.Fragment>
     );
@@ -130,13 +145,16 @@ export default ({csrfUrl, defaultValues, form}: Props) => {
    * On submit form action.
    * @param data Form data.
    */
-  const onSubmit = (data: any) => {
-    data.csrf = csrf;
-    console.log(data);
+  const submitWrapper = (data: any) => {
+    if (csrfUrl && csrf) {
+      data.csrf = csrf;
+    }
+
+    return onSubmit(data);
   };
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={formHooks.handleSubmit(submitWrapper)}>
       {form.map((elementConfig) => renderElement(elementConfig))}
     </Form>
   );

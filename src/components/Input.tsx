@@ -10,12 +10,7 @@ import {
   Label,
 } from 'reactstrap';
 
-import {FormConfig} from '../interfaces/FormConfig';
-
-interface Props extends Omit<Partial<FormProps>, 'formState'> {
-  elementConfig: FormConfig;
-  formState: FormProps['formState'] | unknown[] | unknown;
-}
+import {DefaultInputProps} from '../interfaces/FormConfig';
 
 /** Input field */
 export default ({
@@ -25,7 +20,7 @@ export default ({
   getValues,
   register,
   triggerValidation,
-}: Props) => {
+}: DefaultInputProps) => {
   const {t} = useTranslation();
   const values = getValues();
 

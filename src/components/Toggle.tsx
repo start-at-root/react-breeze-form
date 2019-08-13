@@ -1,17 +1,11 @@
 import * as React from 'react';
-import {FormProps} from 'react-hook-form/dist/types';
 import {useTranslation} from 'react-i18next';
 import {Input, Label} from 'reactstrap';
 
-import {FormConfig} from '../interfaces/FormConfig';
-
-interface Props extends Omit<Partial<FormProps>, 'formState'> {
-  elementConfig: FormConfig;
-  formState: FormProps['formState'] | unknown[] | unknown;
-}
+import {DefaultInputProps} from '../interfaces/FormConfig';
 
 /** Toggle button */
-export default ({elementConfig, register, watch}: Props) => {
+export default ({elementConfig, register, watch}: DefaultInputProps) => {
   const {
     className,
     name,
