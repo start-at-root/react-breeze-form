@@ -10,7 +10,7 @@ import {
   Label,
 } from 'reactstrap';
 
-import {DefaultInputProps} from '../interfaces/FormConfig';
+import {DefaultInputProps, FormConfig} from '../interfaces/FormConfig';
 
 /** Input field */
 export default ({
@@ -26,6 +26,28 @@ export default ({
 
   const {addon, className, name, placeholder} = elementConfig;
 
+  const getInputRegisters = (
+    elementConfig: FormConfig,
+  ): {[key: string]: any} => {
+    const allowed = [
+      'required',
+      'maxLength',
+      'minLength',
+      'max',
+      'min',
+      'pattern',
+      'validate',
+    ];
+
+    return Object.keys(elementConfig)
+      .filter((key) => allowed.includes(key))
+      .reduce((obj, key) => {
+        obj[key] = elementConfig[key];
+
+        return obj;
+      }, {});
+  };
+
   const {touched} = formState as FormProps['formState'];
 
   return (
@@ -38,7 +60,7 @@ export default ({
         )}
         <Input
           name={name}
-          innerRef={register({...elementConfig})}
+          innerRef={register({...getInputRegisters(elementConfig)})}
           invalid={!!errors[name]}
           placeholder={t(placeholder)}
           className={`${className || ''}`}
