@@ -55,7 +55,10 @@ export default ({
       <InputGroup>
         {addon && (
           <InputGroupAddon addonType={addon.type as 'prepend' | 'append'}>
-            <InputGroupText>{addon.icon && <>{addon.icon}</>}</InputGroupText>
+            <InputGroupText>
+              {addon.icon && <>{addon.icon}</>}{' '}
+              {addon.text && <>{addon.text}</>}
+            </InputGroupText>
           </InputGroupAddon>
         )}
         <Input

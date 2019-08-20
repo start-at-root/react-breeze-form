@@ -3,7 +3,7 @@ import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
 
-import {FormConfig, FormHeader} from './interfaces/FormConfig';
+import {FormConfig, FormHeader, FormHooks} from './interfaces/FormConfig';
 import fetch from './utils/fetch';
 import InputForm from './components/Input';
 import SelectForm from './components/SingleSelect';
@@ -16,6 +16,7 @@ interface Props {
     [key: string]: any;
   };
   csrfUrl?: string;
+  getForm?: (formHooks: FormHooks) => any;
   onSubmit: <T>(...args: any) => Promise<T | void> | T | void;
 }
 
@@ -27,7 +28,7 @@ const dependencies = [
 ];
 
 /** Form generator */
-export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
+export default ({csrfUrl, defaultValues, form, getForm, onSubmit}: Props) => {
   const formHooks = useForm({defaultValues});
   const [csrf, setCsrf] = useState();
   const {t} = useTranslation();
@@ -83,8 +84,8 @@ export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
     <Row key={`br-${elementConfig.name}-${elementConfig.type}`}>
       {elementConfig.inputs.map((input, i) => {
         if (
-          !mapper.hasOwnProperty(input.type) ||
-          typeof (mapper as any)[input.type] !== 'function'
+          !mapper.hasOwnProperty(input.type as string) ||
+          typeof (mapper as any)[input.type as string] !== 'function'
         ) {
           return null;
         }
@@ -93,7 +94,7 @@ export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
           <Col
             key={`bc-${name}-${input.type}-${i}`}
             md={input.col || 12 / elementConfig.inputs.length}>
-            {(mapper as any)[input.type](input)}
+            {(mapper as any)[input.type as string](input)}
           </Col>
         );
       })}
@@ -106,8 +107,20 @@ export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
    */
   const renderInput = (elementConfig: FormConfig): React.ReactNode => (
     <Row key={`br-${elementConfig.name}-${elementConfig.type}`}>
-      <Col md={12}>{(mapper as any)[elementConfig.type](elementConfig)}</Col>
+      <Col md={12}>
+        {(mapper as any)[elementConfig.type as string](elementConfig)}
+      </Col>
     </Row>
+  );
+
+  /**
+   * Render custom node as a form input.
+   * @param elementConfig Component/element form configuration object.
+   */
+  const renderCustomNode = (elementConfig: FormConfig): React.ReactNode => (
+    <React.Fragment key={elementConfig.name}>
+      {elementConfig.type}
+    </React.Fragment>
   );
 
   /**
@@ -116,8 +129,9 @@ export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
    */
   const renderElement = (elementConfig: FormConfig) => {
     if (
-      !mapper.hasOwnProperty(elementConfig.type) ||
-      typeof (mapper as any)[elementConfig.type] !== 'function'
+      typeof elementConfig.type === 'string' &&
+      (!mapper.hasOwnProperty(elementConfig.type) ||
+        typeof (mapper as any)[elementConfig.type] !== 'function')
     ) {
       return null;
     }
@@ -128,10 +142,12 @@ export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
       nodes.push(renderHeader(elementConfig.header));
     }
 
-    if (elementConfig.inputs) {
+    if (typeof elementConfig.type === 'string' && !elementConfig.inputs) {
+      nodes.push(renderInput(elementConfig));
+    } else if (elementConfig.inputs) {
       nodes.push(renderMultipleInputs(elementConfig));
     } else {
-      nodes.push(renderInput(elementConfig));
+      nodes.push(renderCustomNode(elementConfig));
     }
 
     return (
@@ -152,6 +168,10 @@ export default ({csrfUrl, defaultValues, form, onSubmit}: Props) => {
 
     return onSubmit(data);
   };
+
+  if (typeof getForm === 'function') {
+    getForm({...formHooks, csrf});
+  }
 
   return (
     <Form onSubmit={formHooks.handleSubmit(submitWrapper)}>
