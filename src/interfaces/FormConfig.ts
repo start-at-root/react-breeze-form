@@ -14,7 +14,7 @@ export interface FormHeader {
 
 export interface FormConfig {
   name: string;
-  type: string;
+  type: string | React.ReactNode;
   col?: number;
   inputType?: InputType | string;
   addon?: {
@@ -43,4 +43,8 @@ export interface DefaultInputProps
   extends Omit<Partial<FormProps>, 'formState'> {
   elementConfig: FormConfig;
   formState: FormProps['formState'] | unknown[] | unknown;
+}
+
+export interface FormHooks extends Omit<DefaultInputProps, 'elementConfig'> {
+  csrf: string;
 }
