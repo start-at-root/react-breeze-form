@@ -1,8 +1,8 @@
 # react-breeze-form
 
-[![Build Status](https://travis-ci.org/jlison/react-breeze-form.svg?branch=master)](https://travis-ci.org/jlison/react-breeze-form)
+[![Build Status](https://travis-ci.org/start-at-root/react-breeze-form.svg?branch=master)](https://travis-ci.org/start-at-root/react-breeze-form)
 [![codecov](https://codecov.io/gh/jlison/react-breeze-form/branch/master/graph/badge.svg)](https://codecov.io/gh/jlison/react-breeze-form)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c2478b21ac94e8e5fe16/maintainability)](https://codeclimate.com/github/jlison/react-breeze-form/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f9d7cae974904d3c0747/maintainability)](https://codeclimate.com/github/start-at-root/react-breeze-form/maintainability)
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
