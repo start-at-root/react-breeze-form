@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Props as FormProps} from 'react-hook-form/dist/types';
 import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
@@ -10,14 +11,12 @@ import SelectForm from './components/SingleSelect';
 import SubmitBtn from './components/SubmitBtn';
 import ToggleForm from './components/Toggle';
 
-interface Props {
+interface Props extends FormProps<any> {
   form: FormConfig[];
-  defaultValues?: {
-    [key: string]: any;
-  };
   csrfUrl?: string;
   getForm?: (formHooks: FormHooks) => any;
   onSubmit: <T>(...args: any) => Promise<T | void> | T | void;
+  valid?: {[key: string]: any};
 }
 
 const dependencies = [
@@ -28,7 +27,14 @@ const dependencies = [
 ];
 
 /** Form generator */
-export default ({csrfUrl, defaultValues, form, getForm, onSubmit}: Props) => {
+export default ({
+  csrfUrl,
+  defaultValues,
+  form,
+  getForm,
+  onSubmit,
+  valid,
+}: Props) => {
   const formHooks = useForm({defaultValues});
   const [csrf, setCsrf] = useState();
   const {t} = useTranslation();
@@ -59,6 +65,7 @@ export default ({csrfUrl, defaultValues, form, getForm, onSubmit}: Props) => {
       <dep.component
         key={`${dep.name}-${elementConfig.name}-${elementConfig.type}`}
         elementConfig={elementConfig}
+        valid={valid}
         {...formHooks}
       />
     );

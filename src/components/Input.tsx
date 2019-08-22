@@ -2,6 +2,7 @@ import React from 'react';
 import {FormProps} from 'react-hook-form/dist/types';
 import {useTranslation} from 'react-i18next';
 import {
+  FormFeedback,
   FormGroup,
   Input,
   InputGroup,
@@ -20,6 +21,7 @@ export default ({
   getValues,
   register,
   triggerValidation,
+  valid,
 }: DefaultInputProps) => {
   const {t} = useTranslation();
   const values = getValues();
@@ -52,7 +54,7 @@ export default ({
 
   return (
     <FormGroup className="rbf-group">
-      <InputGroup>
+      <InputGroup className={`${className || ''}`}>
         {addon && (
           <InputGroupAddon addonType={addon.type as 'prepend' | 'append'}>
             <InputGroupText>
@@ -64,9 +66,13 @@ export default ({
         <Input
           name={name}
           innerRef={register({...getInputRegisters(elementConfig)})}
+          valid={
+            valid
+              ? !!valid[name]
+              : !errors[name] && !!(values[name] ? values[name].trim() : false)
+          }
           invalid={!!errors[name]}
           placeholder={t(placeholder)}
-          className={`${className || ''}`}
           onBlur={() => triggerValidation([{name}])}
         />
         <Label
@@ -79,6 +85,12 @@ export default ({
           touched={`${(touched as any).includes(name)}`}>
           <span>{t(placeholder)}</span>
         </Label>
+        {errors[name] && (
+          <FormFeedback
+            className={`rfb-feedback ${!!errors[name] ? 'rfb-invalid' : ''}`}>
+            <span>{errors[name].message}</span>
+          </FormFeedback>
+        )}
       </InputGroup>
     </FormGroup>
   );

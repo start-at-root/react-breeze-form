@@ -1,7 +1,24 @@
+@import '~compass-mixins/lib/compass';
+@import './custom_colors';
+@import './flat_ui_colors';
+
 .rbf-label-index {
   z-index: 100;
 }
 
 .rbf-m-40 {
   margin: 0 0 0 40px;
+}
+
+.rfb-feedback {
+  @include border-bottom-radius(3px);
+
+  background-color: rgba($flat-pomegranate, 0.8);
+  color: $rbf-white;
+  font-size: 14px;
+  margin: -2px 0 0 0;
+
+  > span {
+    margin: 0 0 0 15px;
+  }
 }
