@@ -43,6 +43,7 @@ export interface DefaultInputProps
   extends Omit<Partial<FormProps>, 'formState'> {
   elementConfig: FormConfig;
   formState: FormProps['formState'] | unknown[] | unknown;
+  valid?: {[key: string]: any};
 }
 
 export interface FormHooks extends Omit<DefaultInputProps, 'elementConfig'> {
