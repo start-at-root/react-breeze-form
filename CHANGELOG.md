@@ -1,3 +1,11 @@
+## [1.0.7](https://github.com/jlison/react-breeze-form/compare/v1.0.6...v1.0.7) (2019-08-22)
+
+
+### Bug Fixes
+
+* add input form feedback ([648c997](https://github.com/jlison/react-breeze-form/commit/648c997))
+* add input form feedback ([#12](https://github.com/jlison/react-breeze-form/issues/12)) ([7f07263](https://github.com/jlison/react-breeze-form/commit/7f07263))
+
 ## [1.0.6](https://github.com/jlison/react-breeze-form/compare/v1.0.5...v1.0.6) (2019-08-20)
 
 
