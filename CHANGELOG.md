@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/start-at-root/react-breeze-form/compare/v1.0.6...v1.1.0) (2019-08-24)
+
+
+### Features
+
+* bump minor release. Add block option for submit btn ([cf117b5](https://github.com/start-at-root/react-breeze-form/commit/cf117b5))
+* bump minor release. Add block option for submit btn. ([#17](https://github.com/start-at-root/react-breeze-form/issues/17)) ([25d2900](https://github.com/start-at-root/react-breeze-form/commit/25d2900))
+
 ## [1.0.6](https://github.com/start-at-root/react-breeze-form/compare/v1.0.5...v1.0.6) (2019-08-24)
 
 
