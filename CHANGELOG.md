@@ -1,3 +1,23 @@
+## [1.0.6](https://github.com/start-at-root/react-breeze-form/compare/v1.0.5...v1.0.6) (2019-08-24)
+
+
+### Bug Fixes
+
+* add basic example. Import only used compass scss mixins. Update FormConfig interface ([6c55869](https://github.com/start-at-root/react-breeze-form/commit/6c55869))
+* add basic example. Import only used compass scss mixins... ([#13](https://github.com/start-at-root/react-breeze-form/issues/13)) ([4a42b58](https://github.com/start-at-root/react-breeze-form/commit/4a42b58))
+* add custom react node inputs ([75b76c7](https://github.com/start-at-root/react-breeze-form/commit/75b76c7))
+* add custom react node inputs ([#8](https://github.com/start-at-root/react-breeze-form/issues/8)) ([52bcde8](https://github.com/start-at-root/react-breeze-form/commit/52bcde8))
+* add input form feedback ([648c997](https://github.com/start-at-root/react-breeze-form/commit/648c997))
+* add input form feedback ([#12](https://github.com/start-at-root/react-breeze-form/issues/12)) ([7f07263](https://github.com/start-at-root/react-breeze-form/commit/7f07263))
+* add translation for icon text and error message in input com… ([#14](https://github.com/start-at-root/react-breeze-form/issues/14)) ([9971596](https://github.com/start-at-root/react-breeze-form/commit/9971596))
+* add translation for icon text and error message in input component. Add codeclimate config yml ([faaec26](https://github.com/start-at-root/react-breeze-form/commit/faaec26))
+* update README badges to start-at-root ([9f761aa](https://github.com/start-at-root/react-breeze-form/commit/9f761aa))
+* update README badges to start-at-root ([#9](https://github.com/start-at-root/react-breeze-form/issues/9)) ([83512a2](https://github.com/start-at-root/react-breeze-form/commit/83512a2))
+* update repo url in package.json file ([f40a7e2](https://github.com/start-at-root/react-breeze-form/commit/f40a7e2))
+* update repo url in package.json file ([#16](https://github.com/start-at-root/react-breeze-form/issues/16)) ([9bc1b83](https://github.com/start-at-root/react-breeze-form/commit/9bc1b83))
+* update semantic release to 15.13.24 ([dc32d3d](https://github.com/start-at-root/react-breeze-form/commit/dc32d3d))
+* update semantic release to 15.13.24 ([#15](https://github.com/start-at-root/react-breeze-form/issues/15)) ([7e68c9f](https://github.com/start-at-root/react-breeze-form/commit/7e68c9f))
+
 ## [1.0.6](https://github.com/jlison/react-breeze-form/compare/v1.0.5...v1.0.6) (2019-08-20)
 
 
