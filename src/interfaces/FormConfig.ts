@@ -37,6 +37,7 @@ export interface FormConfig {
   pattern?: RegExp;
   validate?: any;
   isMulti?: boolean;
+  block?: boolean;
 }
 
 export interface DefaultInputProps
