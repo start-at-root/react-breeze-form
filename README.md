@@ -16,7 +16,7 @@ Versions 1.x.xx are under heavy development, and may have breaking changes.
 
 ## Quick example
 Convert a configuration object such as:
-```
+```jsx
 const form = [
   {
     name: "intro",
@@ -86,7 +86,7 @@ const form = [
 ];
 ```
 ... into a full form component:
-```
+```jsx
 function App() {
   return (
     <div className="App">
