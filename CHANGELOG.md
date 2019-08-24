@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/start-at-root/react-breeze-form/compare/v1.1.0...v1.1.1) (2019-08-24)
+
+
+### Bug Fixes
+
+* add missing compass css3 imports for _toggle scss partial ([0cf8478](https://github.com/start-at-root/react-breeze-form/commit/0cf8478))
+* add missing compass css3 imports for _toggle scss partial ([#18](https://github.com/start-at-root/react-breeze-form/issues/18)) ([16970c1](https://github.com/start-at-root/react-breeze-form/commit/16970c1))
+
 # [1.1.0](https://github.com/start-at-root/react-breeze-form/compare/v1.0.6...v1.1.0) (2019-08-24)
 
 
