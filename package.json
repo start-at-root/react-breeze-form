@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jlison/react-breeze-form.git"
+    "url": "https://github.com/start-at-root/react-breeze-form.git"
   },
   "keywords": [
     "react",
@@ -41,9 +41,9 @@
   "author": "J Lison <j@lison.us>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jlison/react-breeze-form/issues"
+    "url": "https://github.com/start-at-root/react-breeze-form/issues"
   },
-  "homepage": "https://github.com/jlison/react-breeze-form#readme",
+  "homepage": "https://github.com/start-at-root/react-breeze-form#readme",
   "peerDependencies": {
     "compass-mixins": ">=0.12.10",
     "react-dom": ">=16.8.0",
