@@ -7,14 +7,17 @@ import {DefaultInputProps} from '../interfaces/FormConfig';
 /** Submit button */
 export default (props: DefaultInputProps) => {
   const {
-    elementConfig: {className, col, placeholder},
+    elementConfig: {block, className, col, placeholder},
   } = props;
   const {t} = useTranslation();
 
   return (
     <Row className="justify-content-center">
       <Col md={col || 6}>
-        <Button className={`${className} gradient mt-4`} type="submit" block>
+        <Button
+          className={`${className} gradient mt-4`}
+          type="submit"
+          block={block || false}>
           {t(placeholder)}
         </Button>
       </Col>

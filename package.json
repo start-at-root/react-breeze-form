@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jlison/react-breeze-form.git"
+    "url": "https://github.com/start-at-root/react-breeze-form.git"
   },
   "keywords": [
     "react",
@@ -41,9 +41,9 @@
   "author": "J Lison <j@lison.us>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jlison/react-breeze-form/issues"
+    "url": "https://github.com/start-at-root/react-breeze-form/issues"
   },
-  "homepage": "https://github.com/jlison/react-breeze-form#readme",
+  "homepage": "https://github.com/start-at-root/react-breeze-form#readme",
   "peerDependencies": {
     "compass-mixins": ">=0.12.10",
     "react-dom": ">=16.8.0",
@@ -106,7 +106,7 @@
     "rollup-plugin-copy-glob": "^0.3.1",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript2": "^0.22.1",
-    "semantic-release": "^15.13.18",
+    "semantic-release": "^15.13.24",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.1",

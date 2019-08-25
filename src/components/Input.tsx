@@ -59,7 +59,7 @@ export default ({
           <InputGroupAddon addonType={addon.type as 'prepend' | 'append'}>
             <InputGroupText>
               {addon.icon && <>{addon.icon}</>}{' '}
-              {addon.text && <>{addon.text}</>}
+              {addon.text && <>{t(addon.text)}</>}
             </InputGroupText>
           </InputGroupAddon>
         )}
@@ -88,7 +88,7 @@ export default ({
         {errors[name] && (
           <FormFeedback
             className={`rfb-feedback ${!!errors[name] ? 'rfb-invalid' : ''}`}>
-            <span>{errors[name].message}</span>
+            <span>{t(errors[name].message)}</span>
           </FormFeedback>
         )}
       </InputGroup>

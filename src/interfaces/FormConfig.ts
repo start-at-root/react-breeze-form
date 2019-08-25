@@ -26,7 +26,7 @@ export interface FormConfig {
   minLength?: number;
   max?: number;
   min?: number;
-  required?: boolean;
+  required?: boolean | string;
   className?: string;
   placeholder?: string;
   shape?: string;
@@ -37,6 +37,7 @@ export interface FormConfig {
   pattern?: RegExp;
   validate?: any;
   isMulti?: boolean;
+  block?: boolean;
 }
 
 export interface DefaultInputProps

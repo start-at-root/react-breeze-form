@@ -8,6 +8,98 @@
 
 Quickly render bootstrap styled react hook forms using a schema file.
 
+## Notice
+**Currently under development**
+```
+Versions 1.x.xx are under heavy development, and may have breaking changes.
+```
+
+## Quick example
+Convert a configuration object such as:
+```jsx
+const form = [
+  {
+    name: "intro",
+    type: <div className="my-3">This is a quick example</div>
+  },
+  {
+    name: "name",
+    type: "input",
+    inputType: "text",
+    header: {
+      className: "input-header",
+      id: "full-name-header",
+      text: "common:fullName"
+    },
+    inputs: [
+      {
+        className: "mt-4",
+        inputType: "text",
+        name: "firstName",
+        placeholder: "common:first",
+        required: "common:requiredField",
+        type: "input",
+        validate: (value) => value === "James" || "common:invalidName"
+      },
+      {
+        className: "mt-4",
+        inputType: "text",
+        name: "lasttName",
+        placeholder: "common:lastName",
+        required: "common:requiredField",
+        type: "input"
+      }
+    ]
+  },
+  {
+    name: "zip-language",
+    type: "input",
+    inputType: "text",
+    inputs: [
+      {
+        name: "zip",
+        type: "input",
+        inputType: "text",
+        className: "mt-2",
+        placeholder: "common:zip"
+      },
+      {
+        name: "language",
+        type: "singleselect",
+        className: "select-double mt-2",
+        inputType: "select",
+        placeholder: "common:language",
+        options: [
+          { label: "common:en", value: "en" },
+          { label: "common:es", value: "es" }
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    name: "submit",
+    type: "submitbtn",
+    col: 8,
+    placeholder: "common:save"
+  }
+];
+```
+... into a full form component:
+```jsx
+function App() {
+  return (
+    <div className="App">
+        <Form onSubmit={(data: any) => console.log("Data", data)} 
+              form={form} />
+    </div>
+  );
+}
+```
+**Output:**
+
+https://qywrh.csb.app/
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people
