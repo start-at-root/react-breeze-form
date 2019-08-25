@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/start-at-root/react-breeze-form/compare/v1.1.1...v1.1.2) (2019-08-25)
+
+
+### Bug Fixes
+
+* update readme docs. Add submit btn props from reactstrap ([c85a815](https://github.com/start-at-root/react-breeze-form/commit/c85a815))
+* update readme docs. Add submit btn props from reactstrap ([#19](https://github.com/start-at-root/react-breeze-form/issues/19)) ([34ac965](https://github.com/start-at-root/react-breeze-form/commit/34ac965))
+
 ## [1.1.1](https://github.com/start-at-root/react-breeze-form/compare/v1.1.0...v1.1.1) (2019-08-24)
 
 

@@ -11,8 +11,14 @@ Quickly render bootstrap styled react hook forms using a schema file.
 ## Notice
 **Currently under development**
 ```
-Versions 1.x.xx are under heavy development, and may have breaking changes.
+Versions 1.x.xx are under development, and may have breaking changes
 ```
+
+## Required peer dependencies
+* [react-hook-form](https://www.npmjs.com/package/react-hook-form)
+* [react-i18next](https://www.npmjs.com/package/react-i18next)
+* [react-select](https://www.npmjs.com/package/react-select)
+* [reactstrap](https://www.npmjs.com/package/reactstrap)
 
 ## Quick example
 Convert a configuration object such as:
@@ -20,7 +26,11 @@ Convert a configuration object such as:
 const form = [
   {
     name: "intro",
-    type: <div className="my-3">This is a quick example</div>
+    type: (
+      <div className="my-3" style={{ color: "green", fontWeight: "bold" }}>
+        Quick example / Ejemplo rápido
+      </div>
+    )
   },
   {
     name: "name",
@@ -36,10 +46,11 @@ const form = [
         className: "mt-4",
         inputType: "text",
         name: "firstName",
-        placeholder: "common:first",
+        placeholder: "common:firstName",
         required: "common:requiredField",
         type: "input",
-        validate: (value) => value === "James" || "common:invalidName"
+        validate: (value: any) =>
+          !value.includes("test") || "common:invalidName"
       },
       {
         className: "mt-4",
@@ -70,10 +81,9 @@ const form = [
         inputType: "select",
         placeholder: "common:language",
         options: [
-          { label: "common:en", value: "en" },
-          { label: "common:es", value: "es" }
-        ],
-        required: true
+          { label: "common:english", value: "en" },
+          { label: "common:spanish", value: "es" }
+        ]
       }
     ]
   },
@@ -90,15 +100,18 @@ const form = [
 function App() {
   return (
     <div className="App">
-        <Form onSubmit={(data: any) => console.log("Data", data)} 
+        <Form onSubmit={(data) => console.log("Data", data)} 
               form={form} />
     </div>
   );
 }
 ```
-**Output:**
 
-https://qywrh.csb.app/
+## Interactive demo
+Demo: [CodeSandBox](https://codesandbox.io/s/rbf-quick-example-qywrh)
+
+## All configuration options
+All possible configuration options are defined in the [FormConfig interface file](https://github.com/start-at-root/react-breeze-form/blob/master/src/interfaces/FormConfig.ts#L15)
 
 ## Contributors ✨
 
