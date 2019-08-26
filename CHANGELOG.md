@@ -1,3 +1,11 @@
+## [1.1.3](https://github.com/start-at-root/react-breeze-form/compare/v1.1.2...v1.1.3) (2019-08-26)
+
+
+### Bug Fixes
+
+* fix misspelling in rbf input feedback css class. Update FormConfig interface ([b70f5b5](https://github.com/start-at-root/react-breeze-form/commit/b70f5b5))
+* misspelling in rbf input feedback css class. Update FormConf… ([#20](https://github.com/start-at-root/react-breeze-form/issues/20)) ([20991f8](https://github.com/start-at-root/react-breeze-form/commit/20991f8))
+
 ## [1.1.2](https://github.com/start-at-root/react-breeze-form/compare/v1.1.1...v1.1.2) (2019-08-25)
 
 
