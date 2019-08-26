@@ -87,7 +87,7 @@ export default ({
         </Label>
         {errors[name] && (
           <FormFeedback
-            className={`rfb-feedback ${!!errors[name] ? 'rfb-invalid' : ''}`}>
+            className={`rbf-feedback ${!!errors[name] ? 'rbf-invalid' : ''}`}>
             <span>{t(errors[name].message)}</span>
           </FormFeedback>
         )}

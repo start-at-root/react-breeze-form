@@ -1,5 +1,4 @@
-import {FormProps} from 'react-hook-form/dist/types';
-import {ButtonProps} from 'reactstrap/lib/Button';
+import {FormProps, RegisterInput} from 'react-hook-form/dist/types';
 import {InputType} from 'reactstrap/lib/Input';
 
 export interface SelectSelectionInterface {
@@ -13,7 +12,7 @@ export interface FormHeader {
   className?: string;
 }
 
-export interface FormConfig extends Omit<ButtonProps, 'type'> {
+export interface FormConfig extends RegisterInput {
   name: string;
   type: string | React.ReactNode;
   col?: number;
@@ -23,11 +22,6 @@ export interface FormConfig extends Omit<ButtonProps, 'type'> {
     icon?: React.ReactNode;
     text?: string;
   };
-  maxLength?: number;
-  minLength?: number;
-  max?: number;
-  min?: number;
-  required?: boolean | string;
   className?: string;
   placeholder?: string;
   shape?: string;
@@ -38,6 +32,9 @@ export interface FormConfig extends Omit<ButtonProps, 'type'> {
   pattern?: RegExp;
   validate?: any;
   isMulti?: boolean;
+  color?: string;
+  block?: boolean;
+  disabled?: boolean;
 }
 
 export interface DefaultInputProps
