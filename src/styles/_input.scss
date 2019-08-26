@@ -10,13 +10,14 @@
   margin: 0 0 0 40px;
 }
 
-.rfb-feedback {
+.rbf-feedback {
   @include border-bottom-radius(3px);
 
   background-color: rgba($flat-pomegranate, 0.8);
   color: $rbf-white;
-  font-size: 14px;
+  font-size: 12px;
   margin: -2px 0 0 0;
+  padding: 2px 0;
 
   > span {
     margin: 0 0 0 15px;
