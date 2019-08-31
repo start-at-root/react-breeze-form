@@ -1,3 +1,11 @@
+## [1.1.4](https://github.com/start-at-root/react-breeze-form/compare/v1.1.3...v1.1.4) (2019-08-31)
+
+
+### Bug Fixes
+
+* expose react hook form in the input onClick, onBlur, onKeyUp ([b78aa7d](https://github.com/start-at-root/react-breeze-form/commit/b78aa7d))
+* expose react hook form in the input onClick, onBlur, onKeyUp ([#21](https://github.com/start-at-root/react-breeze-form/issues/21)) ([67ba0ee](https://github.com/start-at-root/react-breeze-form/commit/67ba0ee))
+
 ## [1.1.3](https://github.com/start-at-root/react-breeze-form/compare/v1.1.2...v1.1.3) (2019-08-26)
 
 
