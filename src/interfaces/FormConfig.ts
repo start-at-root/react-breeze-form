@@ -35,15 +35,35 @@ export interface FormConfig extends RegisterInput {
   color?: string;
   block?: boolean;
   disabled?: boolean;
+  onKeyUp?: (
+    e: React.FormEvent<HTMLInputElement>,
+    formHooks: Hooks,
+  ) => Promise<void> | void;
+  onBlur?: (
+    e: React.FormEvent<HTMLInputElement> | React.FocusEvent<HTMLElement>,
+    formHooks: Hooks,
+  ) => Promise<void> | void;
+  onFocus?: (
+    e: React.FormEvent<HTMLInputElement> | React.FocusEvent<HTMLElement>,
+    formHooks: Hooks,
+  ) => Promise<void> | void;
+  onClick?: (
+    e: React.FormEvent<HTMLInputElement>,
+    formHooks: Hooks,
+  ) => Promise<void> | void;
 }
 
-export interface DefaultInputProps
-  extends Omit<Partial<FormProps>, 'formState'> {
-  elementConfig: FormConfig;
+export interface Hooks extends Omit<Partial<FormProps>, 'formState'> {
   formState: FormProps['formState'] | unknown[] | unknown;
+  csrf?: string;
+}
+
+export interface DefaultInputProps {
+  formHooks: Hooks;
+  elementConfig: FormConfig;
   valid?: {[key: string]: any};
 }
 
 export interface FormHooks extends Omit<DefaultInputProps, 'elementConfig'> {
-  csrf: string;
+  csrf?: string;
 }

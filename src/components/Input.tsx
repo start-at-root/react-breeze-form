@@ -14,16 +14,9 @@ import {
 import {DefaultInputProps, FormConfig} from '../interfaces/FormConfig';
 
 /** Input field */
-export default ({
-  elementConfig,
-  errors,
-  formState,
-  getValues,
-  register,
-  triggerValidation,
-  valid,
-}: DefaultInputProps) => {
+export default ({elementConfig, formHooks, valid}: DefaultInputProps) => {
   const {t} = useTranslation();
+  const {errors, formState, getValues, register, triggerValidation} = formHooks;
   const values = getValues();
 
   const {addon, className, name, placeholder} = elementConfig;
@@ -73,7 +66,22 @@ export default ({
           }
           invalid={!!errors[name]}
           placeholder={t(placeholder)}
-          onBlur={() => triggerValidation([{name}])}
+          onBlur={(e) => {
+            triggerValidation([{name}]);
+            if (elementConfig.onBlur) {
+              elementConfig.onBlur(e, formHooks);
+            }
+          }}
+          onKeyUp={(e) => {
+            if (elementConfig.onKeyUp) {
+              elementConfig.onKeyUp(e, formHooks);
+            }
+          }}
+          onFocus={(e) => {
+            if (elementConfig.onFocus) {
+              elementConfig.onFocus(e, formHooks);
+            }
+          }}
         />
         <Label
           for={name}
