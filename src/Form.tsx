@@ -4,7 +4,7 @@ import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
 
-import {FormConfig, FormHeader, FormHooks} from './interfaces/FormConfig';
+import {FormConfig, FormHeader, Hooks} from './interfaces/FormConfig';
 import fetch from './utils/fetch';
 import InputForm from './components/Input';
 import SelectForm from './components/SingleSelect';
@@ -14,8 +14,8 @@ import ToggleForm from './components/Toggle';
 interface Props extends FormProps<any> {
   form: FormConfig[];
   csrfUrl?: string;
-  getForm?: (formHooks: FormHooks) => any;
-  onSubmit: <T>(...args: any) => Promise<T | void> | T | void;
+  getForm?: (formHooks: Hooks) => any;
+  onSubmit: <T>(data: any, formHooks: Hooks) => Promise<T | void> | T | void;
   valid?: {[key: string]: any};
 }
 
@@ -44,10 +44,10 @@ export default ({
    */
   useEffect(() => {
     const setCsrfToken = async () => {
-      const {token} = await fetch(csrfUrl);
+      const {csrf} = await fetch(csrfUrl);
 
-      if (token && token.csrf) {
-        setCsrf(token.csrf);
+      if (csrf) {
+        setCsrf(csrf);
       }
     };
 
@@ -66,7 +66,7 @@ export default ({
         key={`${dep.name}-${elementConfig.name}-${elementConfig.type}`}
         elementConfig={elementConfig}
         valid={valid}
-        {...formHooks}
+        formHooks={formHooks}
       />
     );
   });
@@ -173,7 +173,7 @@ export default ({
       data.csrf = csrf;
     }
 
-    return onSubmit(data);
+    return onSubmit(data, formHooks);
   };
 
   if (typeof getForm === 'function') {

@@ -18,7 +18,7 @@ interface Props extends DefaultInputProps {
 }
 
 /** Render a generic single select input */
-export default ({elementConfig, formState, register, setValue}: Props) => {
+export default ({elementConfig, formHooks}: Props) => {
   const {
     className,
     isMulti,
@@ -27,6 +27,7 @@ export default ({elementConfig, formState, register, setValue}: Props) => {
     placeholder,
     required,
   } = elementConfig;
+  const {formState, register, setValue} = formHooks;
   const {touched} = formState as FormProps['formState'];
   const {t} = useTranslation();
   const [values, setReactSelectValue] = useState({selectedOption: []} as any);
@@ -73,6 +74,16 @@ export default ({elementConfig, formState, register, setValue}: Props) => {
         options={translateLabels(options as SelectSelectionInterface[])}
         value={translateLabels(values.selectedOption)}
         isMulti={isMulti || false}
+        onBlur={(e) => {
+          if (elementConfig.onBlur) {
+            elementConfig.onBlur(e, formHooks);
+          }
+        }}
+        onFocus={(e) => {
+          if (elementConfig.onFocus) {
+            elementConfig.onFocus(e, formHooks);
+          }
+        }}
       />
       <Label
         for={name}

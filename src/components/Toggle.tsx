@@ -5,7 +5,7 @@ import {Input, Label} from 'reactstrap';
 import {DefaultInputProps} from '../interfaces/FormConfig';
 
 /** Toggle button */
-export default ({elementConfig, register, watch}: DefaultInputProps) => {
+export default ({elementConfig, formHooks}: DefaultInputProps) => {
   const {
     className,
     name,
@@ -20,6 +20,7 @@ export default ({elementConfig, register, watch}: DefaultInputProps) => {
     placeholder,
   } = elementConfig;
   const {t} = useTranslation();
+  const {register, watch} = formHooks;
   const isToggled = watch(name);
 
   return (
@@ -39,6 +40,11 @@ export default ({elementConfig, register, watch}: DefaultInputProps) => {
             validate,
           })}
           placeholder={t(placeholder)}
+          onClick={(e) => {
+            if (elementConfig.onClick) {
+              elementConfig.onClick(e, formHooks);
+            }
+          }}
         />
         <span className={`rbf-slider ${shape ? shape : 'round'}`}>
           <span
