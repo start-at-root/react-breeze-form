@@ -47,7 +47,7 @@
   "peerDependencies": {
     "compass-mixins": ">=0.12.10",
     "react-dom": ">=16.8.0",
-    "react-hook-form": "=>3.23.0",
+    "react-hook-form": "=>3.21.4",
     "react-i18next": "=>10.2.0",
     "react-select": ">=2.4.1",
     "react": ">=16.8.0",
@@ -96,7 +96,7 @@
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-hook-form": "^3.21.3",
+    "react-hook-form": "^3.21.4",
     "react-i18next": "^10.11.4",
     "react-select": "^3.0.4",
     "reactstrap": "^8.0.1",
