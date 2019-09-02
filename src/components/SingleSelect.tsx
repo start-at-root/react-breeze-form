@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {FormProps} from 'react-hook-form/dist/types';
 import {useTranslation} from 'react-i18next';
 import Select from 'react-select';
 import {FormGroup, Label} from 'reactstrap';
@@ -28,7 +27,7 @@ export default ({elementConfig, formHooks}: Props) => {
     required,
   } = elementConfig;
   const {formState, register, setValue} = formHooks;
-  const {touched} = formState as FormProps['formState'];
+  const {touched} = formState;
   const {t} = useTranslation();
   const [values, setReactSelectValue] = useState({selectedOption: []} as any);
 

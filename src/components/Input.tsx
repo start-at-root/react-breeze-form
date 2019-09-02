@@ -1,5 +1,4 @@
 import React from 'react';
-import {FormProps} from 'react-hook-form/dist/types';
 import {useTranslation} from 'react-i18next';
 import {
   FormFeedback,
@@ -43,7 +42,7 @@ export default ({elementConfig, formHooks, valid}: DefaultInputProps) => {
       }, {});
   };
 
-  const {touched} = formState as FormProps['formState'];
+  const {touched} = formState;
 
   return (
     <FormGroup className="rbf-group">

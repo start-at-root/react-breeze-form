@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Props as FormProps} from 'react-hook-form/dist/types';
+import {Options as FormProps} from 'react-hook-form/dist/types';
 import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
@@ -15,7 +15,7 @@ interface Props extends FormProps<any> {
   form: FormConfig[];
   csrfUrl?: string;
   getForm?: (formHooks: Hooks) => any;
-  onSubmit: <T>(data: any, formHooks: Hooks) => Promise<T | void> | T | void;
+  onSubmit: (data: any, formHooks: Hooks) => any;
   valid?: {[key: string]: any};
 }
 
