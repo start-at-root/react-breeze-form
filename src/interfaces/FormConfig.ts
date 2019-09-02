@@ -1,4 +1,5 @@
-import {FormProps, RegisterInput} from 'react-hook-form/dist/types';
+import useForm from 'react-hook-form/dist/useForm';
+import {RegisterInput} from 'react-hook-form/dist/types';
 import {InputType} from 'reactstrap/lib/Input';
 
 export interface SelectSelectionInterface {
@@ -53,8 +54,7 @@ export interface FormConfig extends RegisterInput {
   ) => Promise<void> | void;
 }
 
-export interface Hooks extends Omit<Partial<FormProps>, 'formState'> {
-  formState: FormProps['formState'] | unknown[] | unknown;
+export interface Hooks extends ReturnType<typeof useForm> {
   csrf?: string;
 }
 

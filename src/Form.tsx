@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Props as FormProps} from 'react-hook-form/dist/types';
+import {Props as ReactHookFormProps} from 'react-hook-form/dist/types';
 import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
@@ -11,11 +11,11 @@ import SelectForm from './components/SingleSelect';
 import SubmitBtn from './components/SubmitBtn';
 import ToggleForm from './components/Toggle';
 
-interface Props extends FormProps<any> {
+interface Props extends ReactHookFormProps<any> {
   form: FormConfig[];
   csrfUrl?: string;
   getForm?: (formHooks: Hooks) => any;
-  onSubmit: <T>(data: any, formHooks: Hooks) => Promise<T | void> | T | void;
+  onSubmit: (data: any, formHooks: Hooks) => any;
   valid?: {[key: string]: any};
 }
 
