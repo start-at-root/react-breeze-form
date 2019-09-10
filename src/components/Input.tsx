@@ -9,6 +9,7 @@ import {
   InputGroupText,
   Label,
 } from 'reactstrap';
+import {InputType} from 'reactstrap/lib/Input';
 
 import {DefaultInputProps, FormConfig} from '../interfaces/FormConfig';
 
@@ -18,7 +19,7 @@ export default ({elementConfig, formHooks, valid}: DefaultInputProps) => {
   const {errors, formState, getValues, register, triggerValidation} = formHooks;
   const values = getValues();
 
-  const {addon, className, name, placeholder} = elementConfig;
+  const {addon, className, inputType, name, placeholder} = elementConfig;
 
   const getInputRegisters = (
     elementConfig: FormConfig,
@@ -56,6 +57,7 @@ export default ({elementConfig, formHooks, valid}: DefaultInputProps) => {
           </InputGroupAddon>
         )}
         <Input
+          type={inputType as InputType}
           name={name}
           innerRef={register({...getInputRegisters(elementConfig)})}
           valid={
