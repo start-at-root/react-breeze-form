@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {PropsWithChildren, useEffect, useState} from 'react';
 import {Props as ReactHookFormProps} from 'react-hook-form/dist/types';
 import useForm from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
@@ -28,13 +28,14 @@ const dependencies = [
 
 /** Form generator */
 export default ({
+  children,
   csrfUrl,
   defaultValues,
   form,
   getForm,
   onSubmit,
   valid,
-}: Props) => {
+}: PropsWithChildren<Props>) => {
   const formHooks = useForm({defaultValues});
   const [csrf, setCsrf] = useState();
   const {t} = useTranslation();
@@ -183,6 +184,7 @@ export default ({
   return (
     <Form onSubmit={formHooks.handleSubmit(submitWrapper)}>
       {form.map((elementConfig) => renderElement(elementConfig))}
+      {children}
     </Form>
   );
 };
