@@ -1,3 +1,12 @@
+## [1.1.5](https://github.com/start-at-root/react-breeze-form/compare/v1.1.4...v1.1.5) (2019-09-02)
+
+
+### Bug Fixes
+
+* reset some interface updates to match react-hook-form@3.21.4 ([8d10edf](https://github.com/start-at-root/react-breeze-form/commit/8d10edf))
+* update interfaces to match updates in react-hook-form ([5d4365c](https://github.com/start-at-root/react-breeze-form/commit/5d4365c))
+* update interfaces to match updates in react-hook-form ([#22](https://github.com/start-at-root/react-breeze-form/issues/22)) ([9f40397](https://github.com/start-at-root/react-breeze-form/commit/9f40397))
+
 ## [1.1.4](https://github.com/start-at-root/react-breeze-form/compare/v1.1.3...v1.1.4) (2019-08-31)
 
 
