@@ -17,7 +17,7 @@ interface Props extends DefaultInputProps {
 }
 
 /** Render a generic single select input */
-export default ({elementConfig, formHooks}: Props) => {
+export default ({defaultValues, elementConfig, formHooks}: Props) => {
   const {
     className,
     isMulti,
@@ -26,6 +26,7 @@ export default ({elementConfig, formHooks}: Props) => {
     placeholder,
     required,
   } = elementConfig;
+  const initialValue = defaultValues ? defaultValues[name] : undefined;
   const {formState, register, setValue} = formHooks;
   const {touched} = formState;
   const {t} = useTranslation();
@@ -63,6 +64,15 @@ export default ({elementConfig, formHooks}: Props) => {
   useEffect(() => {
     register({name, required});
   }, [name, register, required]);
+
+  /**
+   * React's use effect.
+   */
+  useEffect(() => {
+    if (initialValue) {
+      setReactSelectValue({selectedOption: [initialValue]});
+    }
+  }, [initialValue]);
 
   return (
     <FormGroup className="rbf-group">

@@ -68,6 +68,7 @@ export default ({
         elementConfig={elementConfig}
         valid={valid}
         formHooks={formHooks}
+        defaultValues={defaultValues}
       />
     );
   });

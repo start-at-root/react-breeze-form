@@ -62,6 +62,7 @@ export interface DefaultInputProps {
   formHooks: Hooks;
   elementConfig: FormConfig;
   valid?: {[key: string]: any};
+  defaultValues?: {[key: string]: any};
 }
 
 export interface FormHooks extends Omit<DefaultInputProps, 'elementConfig'> {
