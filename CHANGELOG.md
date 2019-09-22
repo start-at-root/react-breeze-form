@@ -1,3 +1,19 @@
+## [1.1.7](https://github.com/start-at-root/react-breeze-form/compare/v1.1.6...v1.1.7) (2019-09-10)
+
+
+### Bug Fixes
+
+* add form children prop ([00959de](https://github.com/start-at-root/react-breeze-form/commit/00959de))
+* add form children prop ([#24](https://github.com/start-at-root/react-breeze-form/issues/24)) ([d6faf0a](https://github.com/start-at-root/react-breeze-form/commit/d6faf0a))
+
+## [1.1.6](https://github.com/start-at-root/react-breeze-form/compare/v1.1.5...v1.1.6) (2019-09-10)
+
+
+### Bug Fixes
+
+* fix input type not being passed to input ([01cc10f](https://github.com/start-at-root/react-breeze-form/commit/01cc10f))
+* input type not being passed to input ([#23](https://github.com/start-at-root/react-breeze-form/issues/23)) ([976f34d](https://github.com/start-at-root/react-breeze-form/commit/976f34d))
+
 ## [1.1.5](https://github.com/start-at-root/react-breeze-form/compare/v1.1.4...v1.1.5) (2019-09-02)
 
 
