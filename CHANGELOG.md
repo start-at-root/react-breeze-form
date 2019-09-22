@@ -1,3 +1,11 @@
+## [1.1.8](https://github.com/start-at-root/react-breeze-form/compare/v1.1.7...v1.1.8) (2019-09-22)
+
+
+### Bug Fixes
+
+* add react-select default values ([7dc255c](https://github.com/start-at-root/react-breeze-form/commit/7dc255c))
+* add react-select default values ([#25](https://github.com/start-at-root/react-breeze-form/issues/25)) ([be834ab](https://github.com/start-at-root/react-breeze-form/commit/be834ab))
+
 ## [1.1.7](https://github.com/start-at-root/react-breeze-form/compare/v1.1.6...v1.1.7) (2019-09-10)
 
 
