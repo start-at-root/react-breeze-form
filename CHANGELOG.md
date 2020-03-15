@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/start-at-root/react-breeze-form/compare/v1.1.8...v1.1.9) (2020-03-15)
+
+
+### Bug Fixes
+
+* **fix label z-index:** fix label z-index ([b2c0c91](https://github.com/start-at-root/react-breeze-form/commit/b2c0c91))
+
 ## [1.1.8](https://github.com/start-at-root/react-breeze-form/compare/v1.1.7...v1.1.8) (2019-09-22)
 
 
