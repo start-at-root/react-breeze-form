@@ -13,6 +13,7 @@
     position: absolute;
     top: -16px;
     width: 100%;
+    z-index: -100;
 
     > span {
       @include border-radius(3px);
@@ -24,9 +25,11 @@
 
   input:focus ~ label[touched='true'] {
     opacity: 1;
+    z-index: 100;
   }
 
   label[visible='true'] {
     opacity: 1;
+    z-index: 100;
   }
 }
