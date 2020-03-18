@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/start-at-root/react-breeze-form/compare/v1.1.9...v2.0.0) (2020-03-18)
+
+
+### Code Refactoring
+
+* **update update interfaces to match latest peer dependencies:** update interfaces and imports ([58ff83d](https://github.com/start-at-root/react-breeze-form/commit/58ff83d17636edbf51ca86a9194a8662e52222ee))
+
+
+### BREAKING CHANGES
+
+* **update update interfaces to match latest peer dependencies:** Update interfaces to match latest peer dependencies
+
 ## [1.1.9](https://github.com/start-at-root/react-breeze-form/compare/v1.1.8...v1.1.9) (2020-03-15)
 
 ### Bug Fixes
