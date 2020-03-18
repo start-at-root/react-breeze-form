@@ -16,7 +16,7 @@ interface Props extends DefaultInputProps {
   options?: Options;
 }
 
-/** Render a generic single select input */
+/** Generic single select input */
 export default ({defaultValues, elementConfig, formHooks}: Props) => {
   const {
     className,
