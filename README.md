@@ -13,7 +13,7 @@ Quickly render bootstrap styled react hook forms using a schema file.
 **Currently under development**
 
 ```
-Versions 1.x.xx are under development, and may have breaking changes
+Versions 2.x.xx are under development, and may have breaking changes
 ```
 
 ## Required peer dependencies

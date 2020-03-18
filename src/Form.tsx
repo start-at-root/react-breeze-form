@@ -1,6 +1,6 @@
 import React, {PropsWithChildren, useEffect, useState} from 'react';
 import {UseFormOptions as ReactHookFormProps} from 'react-hook-form/dist/types';
-import useForm from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
 
