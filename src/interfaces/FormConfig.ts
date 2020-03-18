@@ -1,6 +1,50 @@
 import useForm from 'react-hook-form/dist/useForm';
-import {RegisterInput} from 'react-hook-form/dist/types';
 import {InputType} from 'reactstrap/lib/Input';
+
+interface RegisterInput {
+  required:
+    | string
+    | boolean
+    | {
+        value: boolean;
+        message: string;
+      };
+  min:
+    | string
+    | number
+    | {
+        value: string | number;
+        message: string;
+      };
+  max:
+    | string
+    | number
+    | {
+        value: string | number;
+        message: string;
+      };
+  maxLength:
+    | string
+    | number
+    | {
+        value: string | number;
+        message: string;
+      };
+  minLength:
+    | string
+    | number
+    | {
+        value: string | number;
+        message: string;
+      };
+  pattern:
+    | RegExp
+    | {
+        value: RegExp;
+        message: string;
+      };
+  validate: (...args: any) => boolean | {[key: string]: any};
+}
 
 export interface SelectSelectionInterface {
   value: string;
@@ -13,7 +57,7 @@ export interface FormHeader {
   className?: string;
 }
 
-export interface FormConfig extends RegisterInput {
+export interface FormConfig extends Partial<RegisterInput> {
   name: string;
   type: string | React.ReactNode;
   col?: number;

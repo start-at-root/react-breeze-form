@@ -1,6 +1,6 @@
 import React, {PropsWithChildren, useEffect, useState} from 'react';
-import {Props as ReactHookFormProps} from 'react-hook-form/dist/types';
-import useForm from 'react-hook-form';
+import {UseFormOptions as ReactHookFormProps} from 'react-hook-form/dist/types';
+import {useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {Col, Form, Row} from 'reactstrap';
 
@@ -12,6 +12,7 @@ import SubmitBtn from './components/SubmitBtn';
 import ToggleForm from './components/Toggle';
 
 interface Props extends ReactHookFormProps<any> {
+  defaultValues?: {[key: string]: any};
   form: FormConfig[];
   csrfUrl?: string;
   getForm?: (formHooks: Hooks) => any;

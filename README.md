@@ -9,109 +9,118 @@
 Quickly render bootstrap styled react hook forms using a schema file.
 
 ## Notice
+
 **Currently under development**
+
 ```
-Versions 1.x.xx are under development, and may have breaking changes
+Versions 2.x.xx are under development, and may have breaking changes
 ```
 
 ## Required peer dependencies
-* [react-hook-form](https://www.npmjs.com/package/react-hook-form)
-* [react-i18next](https://www.npmjs.com/package/react-i18next)
-* [react-select](https://www.npmjs.com/package/react-select)
-* [reactstrap](https://www.npmjs.com/package/reactstrap)
+
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form)
+- [react-i18next](https://www.npmjs.com/package/react-i18next)
+- [react-select](https://www.npmjs.com/package/react-select)
+- [reactstrap](https://www.npmjs.com/package/reactstrap)
 
 ## Quick example
+
 Convert a configuration object such as:
+
 ```jsx
 const form = [
   {
-    name: "intro",
+    name: 'intro',
     type: (
-      <div className="my-3" style={{ color: "green", fontWeight: "bold" }}>
+      <div className="my-3" style={{color: 'green', fontWeight: 'bold'}}>
         Quick example / Ejemplo rápido
       </div>
-    )
+    ),
   },
   {
-    name: "name",
-    type: "input",
-    inputType: "text",
+    name: 'name',
+    type: 'input',
+    inputType: 'text',
     header: {
-      className: "input-header",
-      id: "full-name-header",
-      text: "common:fullName"
+      className: 'input-header',
+      id: 'full-name-header',
+      text: 'common:fullName',
     },
     inputs: [
       {
-        className: "mt-4",
-        inputType: "text",
-        name: "firstName",
-        placeholder: "common:firstName",
-        required: "common:requiredField",
-        type: "input",
+        className: 'mt-4',
+        inputType: 'text',
+        name: 'firstName',
+        placeholder: 'common:firstName',
+        required: 'common:requiredField',
+        type: 'input',
         validate: (value: any) =>
-          !value.includes("test") || "common:invalidName"
+          !value.includes('test') || 'common:invalidName',
       },
       {
-        className: "mt-4",
-        inputType: "text",
-        name: "lasttName",
-        placeholder: "common:lastName",
-        required: "common:requiredField",
-        type: "input"
-      }
-    ]
+        className: 'mt-4',
+        inputType: 'text',
+        name: 'lasttName',
+        placeholder: 'common:lastName',
+        required: 'common:requiredField',
+        type: 'input',
+      },
+    ],
   },
   {
-    name: "zip-language",
-    type: "input",
-    inputType: "text",
+    name: 'zip-language',
+    type: 'input',
+    inputType: 'text',
     inputs: [
       {
-        name: "zip",
-        type: "input",
-        inputType: "text",
-        className: "mt-2",
-        placeholder: "common:zip"
+        name: 'zip',
+        type: 'input',
+        inputType: 'text',
+        className: 'mt-2',
+        placeholder: 'common:zip',
       },
       {
-        name: "language",
-        type: "singleselect",
-        className: "select-double mt-2",
-        inputType: "select",
-        placeholder: "common:language",
+        name: 'language',
+        type: 'singleselect',
+        className: 'select-double mt-2',
+        inputType: 'select',
+        placeholder: 'common:language',
         options: [
-          { label: "common:english", value: "en" },
-          { label: "common:spanish", value: "es" }
-        ]
-      }
-    ]
+          {label: 'common:english', value: 'en'},
+          {label: 'common:spanish', value: 'es'},
+        ],
+      },
+    ],
   },
   {
-    name: "submit",
-    type: "submitbtn",
+    name: 'submit',
+    type: 'submitbtn',
     col: 8,
-    placeholder: "common:save"
-  }
+    placeholder: 'common:save',
+  },
 ];
 ```
+
 ... into a full form component:
+
 ```jsx
 function App() {
   return (
     <div className="App">
-        <Form onSubmit={(data) => console.log("Data", data)} 
-              form={form} />
+      <Form onSubmit={(data) => console.log('Data', data)} form={form} />
     </div>
   );
 }
 ```
 
 ## Interactive demo
+
 Demo: [CodeSandBox](https://codesandbox.io/s/rbf-quick-example-qywrh)
 
 ## All configuration options
-All possible configuration options are defined in the [FormConfig interface file](https://github.com/start-at-root/react-breeze-form/blob/master/src/interfaces/FormConfig.ts#L15)
+
+All possible configuration options are defined in the
+[FormConfig interface file](https://github.com/start-at-root/react-breeze-form/blob/master/src/interfaces/FormConfig.ts#L15)
 
 ## Contributors ✨
 
