@@ -19,7 +19,7 @@
     "format": "prettier --write \"**/*.+(ts|tsx|md|yml|json)\"",
     "lint": "eslint ./src --ext .jsx,.ts --ignore-pattern *.test.ts",
     "postrelease": "npm publish && git push --follow-tags",
-    "prepublishOnly": "npm run format && npm run lint && npm test && npm run clean npm run build:css && npm run build:min && npm run build",
+    "prepublishOnly": "npm run format && npm run lint && npm test && npm run clean npm run build:css && npm run build",
     "semantic-release": "semantic-release",
     "test:update": "npm test -- --updateSnapshot --coverage",
     "test": "NODE_ENV=test jest --config=jest.config.js  --coverage --forceExit --detectOpenHandles"
@@ -61,8 +61,7 @@
   "lint-staged": {
     "*.{tsx,ts}": [
       "eslint --fix",
-      "prettier --config ./.prettierrc --write",
-      "git add"
+      "prettier --config ./.prettierrc --write"
     ]
   },
   "devDependencies": {
