@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/start-at-root/react-breeze-form/compare/v2.0.0...v2.0.1) (2020-03-19)
+
+
+### Bug Fixes
+
+* fix cb key generation and touched state not array anymore ([2398dd2](https://github.com/start-at-root/react-breeze-form/commit/2398dd2aed70f2ce992cf8c7f41f8e24a9d036d2))
+
 # [2.0.0](https://github.com/start-at-root/react-breeze-form/compare/v1.1.9...v2.0.0) (2020-03-18)
 
 
