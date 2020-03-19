@@ -91,7 +91,7 @@ export default ({elementConfig, formHooks, valid}: DefaultInputProps) => {
             addon && addon.type === 'prepend' ? 'rbf-m-40' : ''
           }`}
           visible={`${!!values[name]}`}
-          touched={`${(touched as any).includes(name)}`}>
+          touched={touched[name]}>
           <span>{t(placeholder)}</span>
         </Label>
         {errors[name] && (

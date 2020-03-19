@@ -99,7 +99,7 @@ export default ({defaultValues, elementConfig, formHooks}: Props) => {
         sm={6}
         className="rbf-label-index"
         visible={`${values.selectedOption.length > 0}`}
-        touched={`${(touched as string[]).includes(name)}`}>
+        touched={touched[name]}>
         <span>{t(placeholder)}</span>
       </Label>
     </FormGroup>

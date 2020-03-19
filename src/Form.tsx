@@ -102,7 +102,7 @@ export default ({
 
         return (
           <Col
-            key={`bc-${name}-${input.type}-${i}`}
+            key={`bc-${elementConfig.name}-${input.type}-${i}`}
             md={input.col || 12 / elementConfig.inputs.length}>
             {(mapper as any)[input.type as string](input)}
           </Col>
