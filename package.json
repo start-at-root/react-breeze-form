@@ -95,7 +95,7 @@
     "prettier": "^1.19.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-hook-form": "^5.1.1",
+    "react-hook-form": "^6.7.1",
     "react-i18next": "^11.3.3",
     "react-select": "^3.0.8",
     "reactstrap": "^8.4.1",
