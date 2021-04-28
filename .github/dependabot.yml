@@ -1,0 +1,57 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: react-hook-form
+    versions:
+    - 6.14.2
+    - 6.15.1
+    - 6.15.2
+    - 6.15.3
+    - 6.15.4
+    - 6.15.5
+    - 7.0.0
+    - 7.0.1
+    - 7.0.3
+    - 7.0.4
+    - 7.0.7
+    - 7.1.0
+    - 7.1.1
+    - 7.2.2
+    - 7.2.3
+    - 7.3.4
+  - dependency-name: react-i18next
+    versions:
+    - 11.8.10
+    - 11.8.11
+    - 11.8.12
+    - 11.8.13
+    - 11.8.5
+    - 11.8.6
+    - 11.8.7
+    - 11.8.8
+    - 11.8.9
+  - dependency-name: npm
+    versions:
+    - 6.14.11
+    - 6.14.12
+  - dependency-name: react-select
+    versions:
+    - 4.0.2
+    - 4.1.0
+    - 4.2.0
+    - 4.2.1
+  - dependency-name: "@types/react"
+    versions:
+    - 17.0.0
+    - 17.0.1
+    - 17.0.2
+    - 17.0.3
+  - dependency-name: stylelint-scss
+    versions:
+    - 3.18.0
