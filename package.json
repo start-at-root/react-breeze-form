@@ -97,7 +97,7 @@
     "react-dom": "^16.13.0",
     "react-hook-form": "^5.1.1",
     "react-i18next": "^11.3.3",
-    "react-select": "^3.0.8",
+    "react-select": "^4.3.1",
     "reactstrap": "^8.4.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.1.0",
